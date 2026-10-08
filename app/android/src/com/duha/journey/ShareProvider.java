@@ -50,7 +50,15 @@ public class ShareProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public String getType(Uri uri) {
         String lastPathSegment = uri.getLastPathSegment();
-        return (lastPathSegment == null || !lastPathSegment.endsWith(".pdf")) ? "image/png" : "application/pdf";
+        if (lastPathSegment == null) return "application/octet-stream";
+        String name = lastPathSegment.toLowerCase();
+        int dot = name.lastIndexOf('.');
+        String ext = dot >= 0 ? name.substring(dot + 1) : "";
+        if (ext.equals("json")) return "application/json";
+        if (ext.equals("pdf")) return "application/pdf";
+        if (ext.equals("png")) return "image/png";
+        String t = android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext);
+        return t != null ? t : "application/octet-stream";
     }
 
     @Override // android.content.ContentProvider

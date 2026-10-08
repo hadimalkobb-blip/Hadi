@@ -167,6 +167,11 @@ const BADGES = [
   { id: 'duas8', name: 'جامع الأدعية', d: 'حفظت أدعية الأنبياء الثمانية', ic: 'hands' },
   { id: 'bedtime', name: 'حكايةٌ قبل النوم', d: 'استمعت إلى حكاية قبل النوم حتى آخرها', ic: 'moon' },
   { id: 'friday', name: 'أهل الجمعة', d: 'استمعت إلى أربع قصص جمعة', ic: 'calendar' },
+  { id: 'escape', name: 'الخارج إلى الضحى', d: 'فتحت باب «غرفة الهروب»', ic: 'key' },
+  { id: 'caravan', name: 'دليل القافلة', d: 'أوصلت القافلة إلى الواحة', ic: 'camel' },
+  { id: 'headsup', name: 'نجم العيلة', d: 'سمّعت خمس آيات في «شو الآية؟»', ic: 'people' },
+  { id: 'letters2', name: 'جامع الحروف', d: 'وجدت كلمات شبكة «حروف تتلاقى» كلها', ic: 'grid' },
+  { id: 'crossword', name: 'صاحب الشبكة', d: 'أكملت «الكلمات المتقاطعة»', ic: 'grid' },
 ];
 
 /* Little discoveries handed out as rewards */

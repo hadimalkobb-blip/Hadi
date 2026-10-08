@@ -126,6 +126,7 @@ function renderHome() {
     <div class="hcopy"><b>${p >= 1 ? 'شمسك في كبد الضحى' : p > 0 ? `أشرقت شمسك ${ARN(Math.round(p * 100))}٪` : 'شمسك لم تشرق بعد'}</b><span class="dim">${greet} · مستواك: ${LEVELS[li].name}</span></div>
     ${STATIONS.map((s, i) => { const a = ARC(i / 4), d = stDone(s.id), st = S.st[s.id]; return `<button class="node ${d ? 'done' : ''} ${nx && nx.id === s.id ? 'next' : ''}" style="left:${(a.x * 100).toFixed(1)}%;top:${(a.y * 100).toFixed(1)}%" data-go="st${s.id}" aria-label="المحطة ${s.id}: ${s.name}${d ? '، مكتملة' : ''}"><span class="lbl">${s.name}</span>${s.id === 5 ? ic('crown') : ARN(s.id)}${d ? `<span class="stars">${'★'.repeat(st.stars || 1)}</span>` : ''}</button>`; }).join('')}
   </div>
+  ${whatsNewCard()}
   <div class="card cta">${cta}</div>
   ${coachCard()}
   ${wordleCard()}
@@ -682,6 +683,7 @@ function openSettings() {
     <button class="btn btn-line btn-wide" data-go="credits" style="margin-top:6px">${ic('info')} المصادر والحقوق</button>
     <div class="sep" style="margin:8px 0"></div>
     <div id="sReset"><button class="btn btn-line btn-wide">مسح التقدّم والبدء من جديد</button></div>
+    <button class="btn btn-line btn-wide" data-go="whatsnew" style="margin-top:6px">${ic('sparkle')} الجديد في الإصدار ${APP_VERSION}</button>
     <p class="credits" style="margin-top:12px">النص القرآني برواية حفص بالرسم العثماني من Quran.com · التلاوات من EveryAyah.com وQuran.com · توقيت الكلمات من Quran.com ومطابقة صوتية للقرّاء الآخرين.${Sync.ready ? ' · تقدّمك محفوظ في حسابك.' : ''}</p>
   </div>`, sh => {
     sh.querySelector('#sRec').onclick = () => openReciters();

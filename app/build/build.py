@@ -34,7 +34,7 @@ PWA = ('<meta name="theme-color" content="#080c1d">\n'
        '<link rel="manifest" href="manifest.webmanifest">\n'
        '<link rel="icon" href="icon-192.png" type="image/png">\n'
        '<link rel="apple-touch-icon" href="icon-180.png">\n')
-OG_DESC = 'احفظ سورة الضحى بمتعة: مصحفك المذهّب، ١٧ قارئًا، مشهد حقيقي لكل آية، وأكثر من ٢٥ لعبة.'
+OG_DESC = 'احفظ سورة الضحى بمتعة: أكاديمية تجويد تشرح «لماذا»، مدرّبٌ ذكي، ليل الأنبياء وضحاهم، ١٧ قارئًا، وأكثر من ٤٠ لعبة.'
 BASE_STYLE = ('<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}'
               'body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n')
 

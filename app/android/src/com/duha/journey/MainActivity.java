@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
     private static final int REQ_LISTEN = 7;
     private static final int REQ_NOTIFY = 9;
     private static final int REQ_WEBMIC = 8;
+    private static final int REQ_FILE = 11;
+    private ValueCallback<Uri[]> fileCb;
     private static final String START = "https://appassets.androidplatform.net/index.html";
     static MainActivity live;
     private boolean listening;
@@ -69,10 +71,28 @@ public class MainActivity extends Activity {
         settings.setDomStorageEnabled(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setAllowFileAccess(false);
-        settings.setAllowContentAccess(false);
+        settings.setAllowContentAccess(true);   // the file chooser hands the page a content:// file (backup import)
         settings.setTextZoom(100);
         this.web.addJavascriptInterface(new Bridge(), "DuhaApp");
         this.web.setWebChromeClient(new WebChromeClient() { // from class: com.duha.journey.MainActivity.1
+            /* <input type="file">: «أرجِع من ملف» in the backup settings */
+            @Override
+            public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> cb, WebChromeClient.FileChooserParams params) {
+                if (MainActivity.this.fileCb != null) MainActivity.this.fileCb.onReceiveValue(null);
+                MainActivity.this.fileCb = cb;
+                try {
+                    Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                    i.addCategory(Intent.CATEGORY_OPENABLE);
+                    i.setType("*/*");
+                    i.putExtra(Intent.EXTRA_MIME_TYPES, new String[]{"application/json", "text/plain", "application/octet-stream"});
+                    MainActivity.this.startActivityForResult(Intent.createChooser(i, "اختر ملف النسخة الاحتياطية"), REQ_FILE);
+                } catch (Exception e) {
+                    MainActivity.this.fileCb = null;
+                    return false;
+                }
+                return true;
+            }
+
             @Override // android.webkit.WebChromeClient
             public void onPermissionRequest(final PermissionRequest permissionRequest) {
                 MainActivity.this.runOnUiThread(new Runnable() { // from class: com.duha.journey.MainActivity.1.1
@@ -682,6 +702,16 @@ public class MainActivity extends Activity {
                 }
             });
         }
+    }
+
+    @Override // android.app.Activity
+    protected void onActivityResult(int req, int res, Intent data) {
+        if (req == REQ_FILE && this.fileCb != null) {
+            this.fileCb.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(res, data));
+            this.fileCb = null;
+            return;
+        }
+        super.onActivityResult(req, res, data);
     }
 
     @Override // android.app.Activity

@@ -123,7 +123,7 @@ function sealMoment(st, stars) {
   return new Promise(res => {
     const n = st.verses[0], img = typeof sceneUrl === 'function' ? posterUrl(sceneOf('v' + n)) : `scenes/v${n}.jpg`;
     const el = node(`<div class="sealm" role="dialog" aria-label="ختم المحطة"><div class="sealbg" style="background-image:url('${img}')"></div><div class="sealdim"></div>
-      <div class="sealc"><div class="sealstamp">${ic('star8')}<b>${ARN(st.id)}</b></div><span class="eyebrow">خُتمت المحطة</span><h2>${esc(st.name)}</h2><p>${vsLabel(st.verses)}</p><div class="stars3">${[1, 2, 3].map(i => i <= stars ? '<b>★</b>' : '★').join('')}</div><span class="dim sealtap">المس للمتابعة</span></div></div>`);
+      <div class="sealc"><div class="sealstamp"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l5.3 7.2 8.8 1.4-1.4 8.8L44 24l-7.3 2.6 1.4 8.8-8.8 1.4L24 42l-5.3-5.2-8.8-1.4 1.4-8.8L4 24l7.3-2.6-1.4-8.8 8.8-1.4z" fill="rgba(247,184,68,.16)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg><b>${ARN(st.id)}</b></div><span class="eyebrow">خُتمت المحطة</span><h2>${esc(st.name)}</h2><p>${vsLabel(st.verses)}</p><div class="stars3">${[1, 2, 3].map(i => i <= stars ? '<b>★</b>' : '★').join('')}</div><span class="dim sealtap">المس للمتابعة</span></div></div>`);
     document.body.appendChild(el);
     if (S.settings.nature !== false && typeof Amb !== 'undefined') Amb.set('dawn', .22);
     buzz([30, 60, 30, 60, 80]);

@@ -23,6 +23,22 @@ Everything needed to rebuild the app lives in this repository (the workspace tha
    the workflow there joins them and publishes the GitHub release. Stable link:
    https://github.com/hadimalkobb-blip/Hadi/releases/latest/download/rihlat-al-duha.apk
 
+## 5.0 «الثورة» (versionCode 13) — what was added and where
+- Modules (after `games.js`, before `main.js`, see ORDER): `tajweed.js` (academy, 6 games, why-cards), `gold6.js` (daily word, celebrations,
+  station seal, deeds, Duha prayer, backup), `brain.js` (FSRS-4.5 per verse in `S.mem`, answer log, adaptive games, the coach),
+  `prophets.js` (nights and dawns of the prophets, duas, bedtime and Friday stories, Hijra map), `games2.js` (escape room, caravan,
+  heads-up, letters, crossword), `v50.js` (what's new). Styles in `build/src/style50.css`.
+- Data: `build/data/tjd.json` ← `content/tajweed.py` (45 spots, 8 families, rules with harakat), `prd.json` ← `content/prophets.py`,
+  `prn.json` + `docs/extra/narr2/*.mp3` ← `content/narrate.py` (Piper ar_JO-kareem, each part checked by faster-whisper, all ≥ 0.93),
+  `hijra_map.json` (Natural Earth 10m land). Verse audio for the stories: `docs/extra/ayat/SSSAAA.mp3` (EveryAyah, Alafasy 64k).
+- Every quoted verse goes through `content/quran.py` (`exact()`/`fix_quotes`) so the text equals Tanzil Uthmani 1.1 letter for letter.
+- Routes: `go('tja'|'coach'|…)` and `V50_ROUTES` (wordle, deeds, duhapr, weak, prophets, yunus, yusuf, hijra, duas, bedtime, friday,
+  escape, caravan, letters2, crossword, headsup, whatsnew). New games join `allGames()` through `TJ_GAMES` and `GAMES_50`.
+- Android: WebView file chooser (backup «أرجِع من ملف»), ShareProvider returns real MIME types. Key: a new key since 5.0
+  (the 4.x key was lost with the old workspace), so 4.x users uninstall once; from 5.0 on, updates install over.
+- Tests: `test/tj_test.mjs`, `v44_test.mjs`, `pr_test.mjs`, `g2_test.mjs`, `v50_test.mjs` (+ `smoke.mjs` with `ROUTES=`).
+  `BASE=http://127.0.0.1:PORT/` runs them against `docs/` or `android/build/assets/www` too.
+
 ## Red lines
 No music; nature sounds never under recitation. Real scenes without human faces, never images of prophets.
 Cards and stickers never carry verse text. Recordings stay on the device. No guilt notifications, no addictive design.
