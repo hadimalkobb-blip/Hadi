@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="night">#080c1d</color>
+    <string name="app_name">رحلة الضحى</string>
+    <string name="channel_daily">التذكير اليومي</string>
+    <string name="widget_desc">آية مراجعتك اليوم وأيامك المتتالية</string>
+    <string name="widget_tap">اضغط لتبدأ</string>
+    <style name="AppTheme" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:statusBarColor">@color/night</item>
+        <item name="android:navigationBarColor">@color/night</item>
+    </style>
+</resources>

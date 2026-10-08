@@ -1,0 +1,7 @@
+app/site/
+app/android/build/
+app/test/out/
+*.apk
+*.p12
+pass.txt
+__pycache__/
