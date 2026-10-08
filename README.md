@@ -4,7 +4,10 @@
 
 ## التنزيل
 
-**تطبيق أندرويد:** من صفحة [الإصدارات (Releases)](https://github.com/hadimalkobb-blip/Hadi/releases/latest) نزّل ملف `rihlat-al-duha-hd.apk` وافتحه على هاتفك.
+**تطبيق أندرويد (اضغط الرابط من هاتفك وينزل مباشرة):**
+- [النسخة الكاملة بأعلى جودة (٤٠ ميغا) — المقترحة](https://github.com/hadimalkobb-blip/Hadi/raw/main/apk/rihlat-al-duha-hd.apk)
+- [نسخة أخف (٢٩ ميغا)](https://github.com/hadimalkobb-blip/Hadi/raw/main/apk/rihlat-al-duha-lite.apk)
+
 إذا سألك الهاتف، اسمح بتثبيت التطبيقات من هذا المصدر. كل إصدار جديد يُثبَّت فوق القديم وتبقى بياناتك.
 
 **على الويب:** افتح التطبيق مباشرة في المتصفح:
