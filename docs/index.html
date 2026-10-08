@@ -1343,6 +1343,10 @@ body.nightmode #skybg { filter: brightness(.75); }
 .sccard b { font-size: 13px; padding: 0 8px; line-height: 1.5; } .sccard small { font-size: 11px; color: var(--ink-3); padding: 0 8px; }
 .sccard.on { border-color: #ffd77a; box-shadow: 0 0 14px rgba(247,184,68,.45); }
 
+.ntcard i.ntcloud { position: absolute; top: 6px; inset-inline-start: 6px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: rgba(0,0,0,.55); color: #fff; }
+.ntcard i.ntcloud svg.i { width: 13px; height: 13px; }
+.ntload { position: absolute; inset: 40% 16px auto; text-align: center; color: #fff; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+
 </style>
 </head>
 <body>
@@ -3001,8 +3005,8 @@ const sceneOf = k => (typeof k === 'string' && S.sceneOf && S.sceneOf[k]) || k;
 function pkItem(key) { const [, id, k] = String(key).split(':'), p = (typeof PACKS !== 'undefined') && PACKS.find(x => x.id === id), it = p && p.items.find(x => x.k === k); return it ? { p, it } : null; }
 const isStill = k => { k = sceneOf(k); if (!String(k).startsWith('pk:')) return !!(MEDIA.scenes && MEDIA.scenes[k] && MEDIA.scenes[k].s); const r = pkItem(k); return !!r && r.p.kind !== 'video'; };
 const sceneUrl = k => { k = sceneOf(k); if (String(k).startsWith('pk:')) { const r = pkItem(k); return r && r.p.kind === 'video' ? pkUrl(r.p.id, r.it.f) : ''; } return `scenes/${k}.mp4`; };
-const posterUrl = k => { k = sceneOf(k); if (String(k).startsWith('pk:')) { const r = pkItem(k); return r ? pkUrl(r.p.id, r.p.kind === 'video' ? r.it.th : r.it.f) : ''; } return `scenes/${k}.jpg`; };
-const thumbUrl = k => { k = sceneOf(k); if (String(k).startsWith('pk:')) { const r = pkItem(k); return r ? pkUrl(r.p.id, r.it.th) : ''; } return `scenes/${k}.jpg`; };
+const posterUrl = k => { k = sceneOf(k); if (String(k).startsWith('pk:')) { const r = pkItem(k); return r ? (r.p.kind === 'video' ? pkThumb(r.p.id, r.it.th) : pkUrl(r.p.id, r.it.f)) : ''; } return `scenes/${k}.jpg`; };
+const thumbUrl = k => { k = sceneOf(k); if (String(k).startsWith('pk:')) { const r = pkItem(k); return r ? pkThumb(r.p.id, r.it.th) : ''; } return `scenes/${k}.jpg`; };
 const hasScene = k => { k = sceneOf(k); return String(k).startsWith('pk:') ? !!pkItem(k) : !!(MEDIA.scenes && MEDIA.scenes[k]); };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -6857,9 +6861,12 @@ async function stRender() {
   /* the scenes */
   const keys = [...new Set(o.bg === 'auto' ? vs.map(n => 'v' + n).filter(hasScene) : [o.bg])];
   const stills = keys.filter(k => o.bg === 'auto' ? isStill(k) : isStillKey(k));
-  await Promise.all(keys.filter(k => !stills.includes(k)).map(k => new Promise(res => { const v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto'; v.crossOrigin = 'anonymous'; v.src = o.bg === 'auto' ? sceneUrl(k) : mediaUrl(k); run.vids[k] = v; const done = () => res(); v.oncanplay = done; v.onerror = done; setTimeout(done, 6000); })));
+  /* scenes from the library: fetched once at full quality and kept on the phone, so the film never waits on the network */
+  const fileOf = {}; msg('أجهّز المشاهد…'); await Promise.all(keys.map(async k => { fileOf[k] = await mediaFileUrl(o.bg === 'auto' ? sceneOf(k) : k); }));
   if (run.dead) return;
-  const poster = {}; await Promise.all(keys.map(k => new Promise(res => { const im = new Image(); im.crossOrigin = 'anonymous'; im.onload = im.onerror = res; im.src = o.bg === 'auto' ? posterUrl(k) : stills.includes(k) ? mediaUrl(k) : mediaThumb(k); poster[k] = im; })));
+  await Promise.all(keys.filter(k => !stills.includes(k)).map(k => new Promise(res => { const v = document.createElement('video'); v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto'; v.crossOrigin = 'anonymous'; v.src = fileOf[k]; run.vids[k] = v; const done = () => res(); v.oncanplay = done; v.onerror = done; setTimeout(done, 6000); })));
+  if (run.dead) return;
+  const poster = {}; await Promise.all(keys.map(k => new Promise(res => { const im = new Image(); im.crossOrigin = 'anonymous'; im.onload = im.onerror = res; im.src = stills.includes(k) ? fileOf[k] : (o.bg === 'auto' ? posterUrl(k) : mediaThumb(k)); poster[k] = im; })));
   const cv = $('#stCv', L.body), c = cv.getContext('2d');
   const dest = ctx.createMediaStreamDestination(), out = ctx.createGain(); out.connect(dest); out.connect(ctx.destination);
   const stream = new MediaStream([...cv.captureStream(30).getVideoTracks(), ...dest.stream.getAudioTracks()]);
@@ -7218,22 +7225,43 @@ const LIB_BASE = ['https://raw.githubusercontent.com/hadimalkobb-blip/Hadi/main/
 const LIB_CACHE = 'duha-packs-v1';
 const libKey = (id, f) => `https://duha.pack/${id}/${f}`;
 /* the app and web builds carry the packs inside (make_app.py / standalone.py flip this flag); the claude.ai page streams them */
-const PACKS_BUNDLED = true;
+const PACKS_BUNDLED = true;   // web build: every pack file sits next to the page
+const PACKS_THUMBS = true;    // app and web builds: every thumbnail ships inside, so browsing works offline
 const libHasFile = id => { const p = PACKS.find(x => x.id === id); return !!(p && PACKS_BUNDLED && p.b); };
 function pkUrl(id, f) { const k = libKey(id, f); if (Lib.urls.has(k)) return Lib.urls.get(k); return libHasFile(id) ? `packs/${id}/${f}` : LIB_BASE[0] + id + '/' + f; }
-const Lib = { L: null, dl: {}, urls: new Map() };
+const pkThumb = (id, th) => (PACKS_BUNDLED || PACKS_THUMBS) && (PACKS.find(x => x.id === id) || {}).b ? `packs/${id}/${th}` : pkUrl(id, th);
+const libLocal = (id, f) => libHasFile(id) || Lib.cached.has(libKey(id, f));
+const Lib = { L: null, dl: {}, urls: new Map(), cached: new Set(), busy: new Map() };
 const libOK = () => typeof caches !== 'undefined' && typeof fetch === 'function' && window.isSecureContext !== false;
 const libPack = id => PACKS.find(p => p.id === id);
 const libHas = id => libHasFile(id) || !!(S.packs && S.packs[id] && S.packs[id].v === (libPack(id) || {}).v);
 const fmtMB = b => ARN((b / 1048576).toFixed(b < 10485760 ? 1 : 0).replace('.', '٫')) + ' ميغا';
-async function libFile(id, f) {
+/* a pack file: next to the page (web), or kept on the phone, or fetched once from GitHub and then kept */
+async function libFile(id, f, keep = true) {
   const k = libKey(id, f);
   if (Lib.urls.has(k)) return Lib.urls.get(k);
-  let url = libHasFile(id) ? `packs/${id}/${f}` : null;
-  if (!url) try { const c = await caches.open(LIB_CACHE), r = await c.match(k); if (r) url = URL.createObjectURL(await r.blob()); } catch (e) { }
-  if (!url) url = LIB_BASE[0] + id + '/' + f;   // not kept on the device (yet): stream it
-  Lib.urls.set(k, url); return url;
+  if (libHasFile(id)) return `packs/${id}/${f}`;
+  if (Lib.busy.has(k)) return Lib.busy.get(k);
+  const job = (async () => {
+    try { const c = await caches.open(LIB_CACHE), r = await c.match(k); if (r) { const u = URL.createObjectURL(await r.blob()); Lib.urls.set(k, u); Lib.cached.add(k); return u; } } catch (e) { }
+    if (keep && libOK() && navigator.onLine !== false) {
+      try {
+        const b = await libFetch(id + '/' + f), c = await caches.open(LIB_CACHE);
+        await c.put(k, new Response(b, { headers: { 'content-type': f.endsWith('.mp4') ? 'video/mp4' : f.endsWith('.json') ? 'application/json' : 'image/jpeg' } }));
+        const u = URL.createObjectURL(b); Lib.urls.set(k, u); Lib.cached.add(k); return u;
+      } catch (e) { }
+    }
+    return LIB_BASE[0] + id + '/' + f;   // could not keep it: stream it
+  })();
+  Lib.busy.set(k, job); try { return await job; } finally { Lib.busy.delete(k); }
 }
+/* which files are already on the phone, and blob URLs for the ones the app shows by itself (each verse's chosen scene) */
+async function libWarm() {
+  if (!libOK()) return;
+  try { const c = await caches.open(LIB_CACHE); for (const r of await c.keys()) Lib.cached.add(r.url); } catch (e) { return; }
+  for (const key of new Set(Object.values(S.sceneOf || {}))) { const r = pkItem(key); if (r && Lib.cached.has(libKey(r.p.id, r.it.f))) await libFile(r.p.id, r.it.f); }
+}
+setTimeout(() => libWarm().catch(() => { }), 600);
 async function libFetch(path, onBytes) {
   let err;
   for (const base of LIB_BASE) {
@@ -7258,9 +7286,9 @@ async function libInstall(id) {
     for (const f of p.files) {
       if (D.dead) throw new Error('cancel');
       const k = libKey(id, f.p);
-      if (await c.match(k)) { D.got += f.s; libProg(id); continue; }
+      if (await c.match(k)) { D.got += f.s; Lib.cached.add(k); libProg(id); continue; }
       const b = await libFetch(id + '/' + f.p, n => { D.got += n; libProg(id); });
-      await c.put(k, new Response(b, { headers: { 'content-type': f.p.endsWith('.mp4') ? 'video/mp4' : f.p.endsWith('.json') ? 'application/json' : 'image/jpeg' } }));
+      await c.put(k, new Response(b, { headers: { 'content-type': f.p.endsWith('.mp4') ? 'video/mp4' : f.p.endsWith('.json') ? 'application/json' : 'image/jpeg' } })); Lib.cached.add(k);
     }
     S.packs = S.packs || {}; S.packs[id] = { v: p.v, at: Date.now() }; save();
     award('pack'); toast(`نزلت «${p.t}»، وصارت تعمل بلا إنترنت`, 'check');
@@ -7271,7 +7299,7 @@ async function libInstall(id) {
 }
 async function libRemove(id) {
   const p = libPack(id); if (!p) return;
-  try { const c = await caches.open(LIB_CACHE); for (const f of p.files) await c.delete(libKey(id, f.p)); } catch (e) { }
+  try { const c = await caches.open(LIB_CACHE); for (const f of p.files) { await c.delete(libKey(id, f.p)); Lib.cached.delete(libKey(id, f.p)); } } catch (e) { }
   for (const f of p.files) { const k = libKey(id, f.p), u = Lib.urls.get(k); if (u && u.startsWith('blob:')) URL.revokeObjectURL(u); Lib.urls.delete(k); }
   if (S.packs) delete S.packs[id]; save(); libDraw();
   toast(`حُذفت «${p.t}» من جهازك`, 'check');
@@ -7291,16 +7319,16 @@ function libDraw() {
   const L = Lib.L; if (!L) return;
   const total = PACKS.filter(p => libHas(p.id)).reduce((a, p) => a + p.size, 0);
   html(L.body, `<div class="lbwrap">
-    <p class="muted sthint">كل ما في المكتبة صار جزءًا من التطبيق: تختار منه مشهد كل آية، وخلفية أفلام الاستوديو، وتتأمله هنا.</p>
+    <p class="muted sthint">كل ما في المكتبة جزءٌ من التطبيق: تختار منه مشهد كل آية، وخلفية أفلام الاستوديو، وتتأمله هنا. يبقى على GitHub ليخفّ التطبيق، ويُعرض لك بجودته الكاملة، وكل ما تختاره أو تشاهده يُحفظ على جهازك. ونزّل الحزمة كاملةً إن أردتها كلها بلا إنترنت.</p>
     <button class="btn btn-sun btn-wide" data-lbgo="scenes">${ic('film')} اختر مشهد كل آية</button>
     ${libOK() ? '' : '<p class="warn">التنزيل يعمل في تطبيق أندرويد ونسخة الويب. هنا تستطيع تصفّح الحزم وفتحها مباشرة من الإنترنت.</p>'}
     <div class="lbgrid">${PACKS.map(p => {
       const has = libHas(p.id), D = Lib.dl[p.id], pct = D ? clamp(D.got / D.total) * 100 : 0;
       return `<div class="lbcard${has ? ' has' : ''}" data-pk="${p.id}">
-        <div class="lbcov" style="background-image:url('${pkUrl(p.id, p.cover)}')"><span class="lbic">${ic(p.ic)}</span>${has ? `<em>${ic('check')} ${libHasFile(p.id) ? 'داخل التطبيق' : 'على جهازك'}</em>` : ''}</div>
+        <div class="lbcov" style="background-image:url('${pkThumb(p.id, p.cover)}')"><span class="lbic">${ic(p.ic)}</span>${has ? `<em>${ic('check')} ${libHasFile(p.id) ? 'مع الموقع' : 'كلها على جهازك'}</em>` : ''}</div>
         <div class="lbtx"><b>${p.t}</b><span>${p.d}</span><small class="dim">${ARN(p.n)} ${p.unit} · ${fmtMB(p.size)}</small></div>
         ${D ? `<div class="lbdl"><div class="gbar lbbar"><i style="width:${pct.toFixed(1)}%"></i></div><span class="lbpct">${ARN(Math.round(pct))}٪</span><button class="iconbtn" data-lb="stop" aria-label="إيقاف التنزيل">${ic('x')}</button></div>`
-          : `<div class="row lbbtns"><button class="btn ${has ? 'btn-sun' : 'btn-line'}" data-lb="open">${ic(has ? 'play' : 'eye')} ${has ? 'افتح' : 'جرّب'}</button>${libHasFile(p.id) ? '' : has ? `<button class="btn btn-line" data-lb="del">${ic('x')} احذف</button>` : `<button class="btn btn-sun" data-lb="get">${ic('download')} نزّل</button>`}</div>`}
+          : `<div class="row lbbtns"><button class="btn ${has ? 'btn-sun' : 'btn-line'}" data-lb="open">${ic(has ? 'play' : 'eye')} ${has ? 'افتح' : 'تصفّح'}</button>${libHasFile(p.id) ? '' : has ? `<button class="btn btn-line" data-lb="del">${ic('x')} احذف</button>` : `<button class="btn btn-sun" data-lb="get">${ic('download')} نزّلها كلها</button>`}</div>`}
       </div>`; }).join('')}</div>
     <p class="dim stsmall" id="lbSpace"></p>
     <p class="dim stsmall">${total ? `على جهازك الآن ${fmtMB(total)} من الحزم. ` : ''}الصور والمشاهد كلها حقيقية وبلا وجوه، وبلا موسيقى؛ ومصادرها في «المصادر والحقوق» بالإعدادات.</p>
@@ -7319,7 +7347,7 @@ function libOpen(id) {
   const p = libPack(id); if (!p) return;
   if (p.kind === 'pano') { libImm(true); openImmersive('p_' + p.items[0].k); }
   if (p.kind === 'gallery') openKawn(0, id);
-  if (p.kind === 'video') openNature();
+  if (p.kind === 'video') openNature(id);
 }
 /* the immersive view gains every panorama of the pack */
 function libImm(all) {
@@ -7345,7 +7373,7 @@ function openKawn(i = 0, id = 'kawn') {
       <button class="iconbtn" data-kw="next" aria-label="التالية">${ic('prev')}</button></div>
     <div class="kwthumbs" id="kwTh">${p.items.map((it, j) => `<button data-kt="${j}" aria-label="${esc(it.t)}"><img loading="lazy" alt="" data-f="${it.th}"></button>`).join('')}</div>
   </div>`);
-  $$('#kwTh img', L.body).forEach(im => libFile(id, im.dataset.f).then(u => { im.src = u; }));
+  $$('#kwTh img', L.body).forEach(im => { im.src = pkThumb(id, im.dataset.f); });
   L.onClose = () => { clearTimeout(Kawn.t); Kawn.auto = false; Kawn.L = null; };
   L.body.onclick = e => {
     const t = e.target.closest('[data-kt]'); if (t) { kwShow(+t.dataset.kt); return; }
@@ -7373,23 +7401,23 @@ async function kwShow(i) {
 
 /* ---------- مشاهد الطبيعة: real footage, always silent ---------- */
 const Nat = { L: null };
-function openNature() {
-  const p = libPack('tabia'); if (!p) return;
+function openNature(id = 'tabia') {
+  const p = libPack(id); if (!p) return; Nat.id = id;
   const L = Gx.open('ntv', p.t, 'eye'); Nat.L = L;
   html(L.body, `<div class="ntwrap"><p class="muted sthint">مشاهد حقيقية صامتة. اختر مشهدًا، ويمكنك أن تسمع معه آيةً بصوت القارئ.</p>
-    <div class="ntgrid">${p.items.map((it, j) => `<button class="ntcard" data-nt="${j}"><img loading="lazy" alt="" data-f="${it.th}"><b>${esc(it.t)}</b></button>`).join('')}</div></div>`);
-  $$('.ntcard img', L.body).forEach(im => libFile('tabia', im.dataset.f).then(u => { im.src = u; }));
+    <div class="ntgrid">${p.items.map((it, j) => `<button class="ntcard" data-nt="${j}"><img loading="lazy" alt="" data-f="${it.th}"><b>${esc(it.t)}</b>${libLocal(id, it.f) ? '' : `<i class="ntcloud">${ic('download')}</i>`}</button>`).join('')}</div></div>`);
+  $$('.ntcard img', L.body).forEach(im => { im.src = pkThumb(Nat.id, im.dataset.f); });
   L.onClose = () => { Nat.L = null; };
   L.body.onclick = e => { const c = e.target.closest('[data-nt]'); if (c) ntPlay(+c.dataset.nt); };
   award('tabia');
 }
 async function ntPlay(j) {
-  const p = libPack('tabia'), it = p.items[j];
+  const p = libPack(Nat.id), it = p.items[j];
   const L = Gx.open('ntplay', it.t, 'eye');
-  html(L.body, `<div class="ntstage"><video id="ntV" muted playsinline loop autoplay></video>
+  html(L.body, `<div class="ntstage"><video id="ntV" muted playsinline loop autoplay poster="${pkThumb(p.id, it.th)}"></video><div class="ntload" id="ntLoad">${libLocal(p.id, it.f) ? '' : 'أحضر المشهد بجودته الكاملة، ويبقى على جهازك بعدها…'}</div>
     <div class="ntcap"><b>${esc(it.t)}</b><span>${esc(it.c || '')}</span><small>${esc(it.by)} · ${esc(it.lic)}</small></div>
     <div class="ntbar"><span class="dim">آية مع المشهد:</span>${verseRange(1, NV).map(n => `<button class="chip" data-nv="${n}">${ARN(n)}</button>`).join('')}<button class="chip" data-nv="all">السورة</button></div></div>`);
-  const v = $('#ntV', L.body); v.src = await libFile('tabia', it.f); v.play().catch(() => { });
+  const v = $('#ntV', L.body), u = await libFile(p.id, it.f); if (!L.el.isConnected) return; v.src = u; v.play().catch(() => { }); const ld = $('#ntLoad', L.body); if (ld) ld.remove();
   L.onClose = () => { try { v.pause(); v.removeAttribute('src'); v.load(); } catch (e) { } };
   L.body.onclick = e => { const b = e.target.closest('[data-nv]'); if (!b) return; Sfx.init(); const vs = b.dataset.nv === 'all' ? verseRange(1, NV) : [+b.dataset.nv]; playSeq(vs, { gap: 600 }); sqNote(vs); };
 }
@@ -7784,7 +7812,7 @@ function openKawkaba() {
       <div class="row strange"><label>من الآية ${vRangeSel('kkFrom', o.from)}</label><label>إلى الآية ${vRangeSel('kkTo', o.to)}</label></div>
       <button class="btn btn-sun btn-wide" id="kkGo">${ic('play')} ابدأ</button>
       <p class="dim stsmall">المس النجمة الأولى ثم التي تليها، أو اسحب من نجمةٍ إلى التالية.</p></div></div></div>`);
-  const bg = mediaFind('layl', 'image'); if (bg) $('#kkBg', L.body).style.backgroundImage = `url('${mediaUrl(bg.key)}')`;
+  const bg = mediaFind('layl', 'image'); if (bg) { const el = $('#kkBg', L.body); el.style.backgroundImage = `url('${mediaThumb(bg.key)}')`; mediaFileUrl(bg.key).then(u => { el.style.backgroundImage = `url('${u}')`; }); }
   const cv = Kk.cv = $('#kkCv', L.body);
   L.onClose = () => { cancelAnimationFrame(Kk.raf); Kk.L = null; stopAll(); };
   $('#kkGo', L.body).onclick = () => {
@@ -7891,7 +7919,9 @@ function kkDraw() {
    كل المشاهد في مكانٍ واحد: built-in scenes and every pack photo and video, chosen per verse
    ===================================================================================== */
 const VMOOD = { 0: 'fajr', 1: 'duha', 2: 'layl', 3: 'fajr', 4: 'fajr', 5: 'duha', 6: 'duha', 7: 'layl', 8: 'duha', 9: 'asr', 10: 'asr', 11: 'duha' };
-const mediaThumb = key => String(key).startsWith('pk:') ? (r => r ? pkUrl(r.p.id, r.it.th) : '')(pkItem(key)) : `scenes/${key}.jpg`;
+const mediaThumb = key => String(key).startsWith('pk:') ? (r => r ? pkThumb(r.p.id, r.it.th) : '')(pkItem(key)) : `scenes/${key}.jpg`;
+const mediaLocal = key => !String(key).startsWith('pk:') || (r => !!r && libLocal(r.p.id, r.it.f))(pkItem(key));
+async function mediaFileUrl(key) { const r = String(key).startsWith('pk:') && pkItem(key); return r ? libFile(r.p.id, r.it.f) : mediaUrl(key); }
 const mediaUrl = key => String(key).startsWith('pk:') ? (r => r ? pkUrl(r.p.id, r.it.f) : '')(pkItem(key)) : `scenes/${key}.${MEDIA.scenes[key] && MEDIA.scenes[key].s ? 'jpg' : 'mp4'}`;
 function mediaAll() {
   const out = [];
@@ -7919,7 +7949,8 @@ function scPick(n, after) {
     const list = f === 'all' ? all : f === 'video' ? all.filter(m => m.kind === 'video') : f === 'image' ? all.filter(m => m.kind === 'image') : [...own, ...near];
     html(L.body, `<div class="scwrap"><p class="qinline" style="text-align:center">${esc(plainVerse(n))}</p>
       <div class="chips">${[['sug', 'مقترحة لهذه الآية'], ['video', 'فيديو'], ['image', 'صور'], ['all', 'الكل']].map(([v, t]) => `<button class="chip${f === v ? ' on' : ''}" data-f="${v}">${t}</button>`).join('')}${S.sceneOf && S.sceneOf[k] ? `<button class="chip" data-reset="1">${ic('repeat')} الأصلي</button>` : ''}</div>
-      <div class="scgrid">${list.map(m => `<button class="sccard${m.key === cur ? ' on' : ''}" data-key="${m.key}"><span style="background-image:url('${mediaThumb(m.key)}')"></span>${m.kind === 'video' ? `<i>${ic('play')}</i>` : ''}<b>${esc(m.t)}</b><small>${esc(m.src)}</small></button>`).join('') || '<p class="dim">لا شيء هنا بعد</p>'}</div></div>`);
+      <div class="scgrid">${list.map(m => `<button class="sccard${m.key === cur ? ' on' : ''}" data-key="${m.key}"><span style="background-image:url('${mediaThumb(m.key)}')"></span>${m.kind === 'video' ? `<i>${ic('play')}</i>` : ''}<b>${esc(m.t)}</b><small>${esc(m.src)}${mediaLocal(m.key) ? '' : ' · من الإنترنت'}</small></button>`).join('') || '<p class="dim">لا شيء هنا بعد</p>'}</div>
+      <p class="dim stsmall">ما تختاره يُحضَر مرةً واحدة بجودته الكاملة، ثم يبقى على جهازك ويعمل بلا إنترنت.</p></div>`);
   };
   draw();
   L.body.onclick = e => {
@@ -7927,6 +7958,7 @@ function scPick(n, after) {
     if (e.target.closest('[data-reset]')) { delete S.sceneOf[k]; save(); toast('رجع المشهد الأصلي', 'check'); Gx.close(L); after && after(); return; }
     const m = e.target.closest('[data-key]'); if (!m) return;
     S.sceneOf = S.sceneOf || {}; if (m.dataset.key === k) delete S.sceneOf[k]; else S.sceneOf[k] = m.dataset.key; save();
+    const pr = pkItem(m.dataset.key); if (pr) libFile(pr.p.id, pr.it.f).then(() => after && after());   // keep the chosen scene on the phone
     award('scenes'); toast(n ? `صار للآية ${ARN(n)} مشهدٌ جديد` : 'صار للبسملة مشهدٌ جديد', 'check'); Gx.close(L); after && after();
   };
 }
