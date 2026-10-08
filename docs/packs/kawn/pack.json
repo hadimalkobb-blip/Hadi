@@ -1,0 +1,281 @@
+{
+"id": "kawn",
+"items": [
+{
+"k": "iss072e487315",
+"t": "شمسٌ تشرق على الأرض",
+"v": 1,
+"f": "iss072e487315.jpg",
+"th": "iss072e487315_t.jpg",
+"by": "NASA / JSC",
+"date": "2025-01-16",
+"src": "https://images.nasa.gov/details/iss072e487315",
+"lic": "Public domain",
+"c": "من محطة الفضاء الدولية: الشمس تطلّ من وراء حافة الأرض",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss065e013242",
+"t": "أول الضوء",
+"v": 1,
+"f": "iss065e013242.jpg",
+"th": "iss065e013242_t.jpg",
+"by": "NASA / JSC",
+"date": "2021-05-02",
+"src": "https://images.nasa.gov/details/iss065e013242",
+"lic": "Public domain",
+"c": "خطٌّ رقيق من الغلاف الجوي يضيء قبل الشروق",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss066e091822",
+"t": "خيطُ الفجر",
+"v": 1,
+"f": "iss066e091822.jpg",
+"th": "iss066e091822_t.jpg",
+"by": "NASA / JSC",
+"date": "2021-12-17",
+"src": "https://images.nasa.gov/details/iss066e091822",
+"lic": "Public domain",
+"c": "ألوان الفجر طبقاتٌ فوق الأرض",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss073e0988954",
+"t": "ضحى من الفضاء",
+"v": 1,
+"f": "iss073e0988954.jpg",
+"th": "iss073e0988954_t.jpg",
+"by": "NASA / JSC",
+"date": "2025-10-30",
+"src": "https://images.nasa.gov/details/iss073e0988954",
+"lic": "Public domain",
+"c": "الشمس ترتفع والضوء يغمر الأفق",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss073e1068530",
+"t": "شروقٌ مداري",
+"v": 1,
+"f": "iss073e1068530.jpg",
+"th": "iss073e1068530_t.jpg",
+"by": "NASA / JSC",
+"date": "2025-11-13",
+"src": "https://images.nasa.gov/details/iss073e1068530",
+"lic": "Public domain",
+"c": "رواد المحطة يرون نحو ستة عشر شروقًا كل يوم",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss039e009160",
+"t": "ليلٌ يغطّي الأرض",
+"v": 2,
+"f": "iss039e009160.jpg",
+"th": "iss039e009160_t.jpg",
+"by": "NASA / JSC",
+"date": "2014-04-02",
+"src": "https://images.nasa.gov/details/iss039e009160",
+"lic": "Public domain",
+"c": "نصف الأرض في الظلام، وأضواء المدن نقاطٌ صغيرة",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "iss064e023201",
+"t": "أضواء الليل",
+"v": 2,
+"f": "iss064e023201.jpg",
+"th": "iss064e023201_t.jpg",
+"by": "NASA / JSC",
+"date": "2021-01-13",
+"src": "https://images.nasa.gov/details/iss064e023201",
+"lic": "Public domain",
+"c": "مدنٌ مضيئة تحت سماءٍ ساكنة",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "iss074e0521637",
+"t": "درب التبانة فوق الأرض",
+"v": 2,
+"f": "iss074e0521637.jpg",
+"th": "iss074e0521637_t.jpg",
+"by": "NASA / JSC",
+"date": "2026-04-13",
+"src": "https://images.nasa.gov/details/iss074e0521637",
+"lic": "Public domain",
+"c": "مجرّتنا تمتد فوق حافة الأرض المظلمة",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "iss071e256968",
+"t": "النيل في الليل",
+"v": 2,
+"f": "iss071e256968.jpg",
+"th": "iss071e256968_t.jpg",
+"by": "NASA / JSC",
+"date": "2024-06-30",
+"src": "https://images.nasa.gov/details/iss071e256968",
+"lic": "Public domain",
+"c": "وادي النيل خيطٌ من الضوء في الصحراء",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "PIA26681",
+"t": "الشمس",
+"v": 1,
+"f": "PIA26681.jpg",
+"th": "PIA26681_t.jpg",
+"by": "NASA / JPL",
+"date": "2025-09-15",
+"src": "https://images.nasa.gov/details/PIA26681",
+"lic": "Public domain",
+"c": "صورة من مرصد ديناميكا الشمس (SDO) بلونٍ يظهر الطبقات الحارّة",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "PIA17669",
+"t": "وجه الشمس",
+"v": 1,
+"f": "PIA17669.jpg",
+"th": "PIA17669_t.jpg",
+"by": "NASA / JPL",
+"date": "2014-02-11",
+"src": "https://images.nasa.gov/details/PIA17669",
+"lic": "Public domain",
+"c": "سطح الشمس كما يراه مرصد ناسا",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "PIA20604",
+"t": "لهب الشمس",
+"v": 1,
+"f": "PIA20604.jpg",
+"th": "PIA20604_t.jpg",
+"by": "NASA / JPL",
+"date": "2016-04-06",
+"src": "https://images.nasa.gov/details/PIA20604",
+"lic": "Public domain",
+"c": "حلقاتٌ من الغاز المتوهّج فوق سطح الشمس",
+"mood": "fajr",
+"vs": [
+1
+]
+},
+{
+"k": "iss055e000034",
+"t": "القمر فوق الأرض",
+"v": 2,
+"f": "iss055e000034.jpg",
+"th": "iss055e000034_t.jpg",
+"by": "NASA / JSC",
+"date": "2018-02-28",
+"src": "https://images.nasa.gov/details/iss055e000034",
+"lic": "Public domain",
+"c": "القمر يلوح فوق الغلاف الجوي الأزرق",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "as08-13-2329",
+"t": "الأرض من القمر",
+"f": "as08-13-2329.jpg",
+"th": "as08-13-2329_t.jpg",
+"by": "NASA / JSC",
+"date": "2009-01-21",
+"src": "https://images.nasa.gov/details/as08-13-2329",
+"lic": "Public domain",
+"c": "صورة «شروق الأرض» من رحلة أبولو ٨ عام ١٩٦٨",
+"mood": "duha",
+"vs": []
+},
+{
+"k": "iss023e058455",
+"t": "شفقٌ أخضر",
+"v": 2,
+"f": "iss023e058455.jpg",
+"th": "iss023e058455_t.jpg",
+"by": "NASA / JSC",
+"date": "2010-05-29",
+"src": "https://images.nasa.gov/details/iss023e058455",
+"lic": "Public domain",
+"c": "الشفق القطبي من فوق، يلتفّ حول الأرض",
+"mood": "layl",
+"vs": [
+2
+]
+},
+{
+"k": "iss065e009516",
+"t": "صحراءٌ واسعة",
+"f": "iss065e009516.jpg",
+"th": "iss065e009516_t.jpg",
+"by": "NASA / JSC",
+"date": "2021-04-29",
+"src": "https://images.nasa.gov/details/iss065e009516",
+"lic": "Public domain",
+"c": "رمالٌ وصخورٌ تمتد بلا نهاية",
+"mood": "duha",
+"vs": []
+},
+{
+"k": "iss065e009521",
+"t": "عين الصحراء",
+"f": "iss065e009521.jpg",
+"th": "iss065e009521_t.jpg",
+"by": "NASA / JSC",
+"date": "2021-04-29",
+"src": "https://images.nasa.gov/details/iss065e009521",
+"lic": "Public domain",
+"c": "تكوين الريشات في موريتانيا: دوائر صخرية عرضها نحو أربعين كيلومترًا",
+"mood": "duha",
+"vs": []
+},
+{
+"k": "iss072e095217",
+"t": "نهرٌ في الصحراء",
+"f": "iss072e095217.jpg",
+"th": "iss072e095217_t.jpg",
+"by": "NASA / JSC",
+"date": "2024-10-20",
+"src": "https://images.nasa.gov/details/iss072e095217",
+"lic": "Public domain",
+"c": "نهرٌ يشق الأرض الجافة وحوله الخضرة",
+"mood": "duha",
+"vs": []
+}
+]
+}

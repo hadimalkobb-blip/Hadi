@@ -1,0 +1,1829 @@
+{
+"id": "suwar",
+"items": [
+{
+"k": "s4",
+"t": "شجرةٌ في شروقٍ برتقالي",
+"mood": "fajr",
+"vs": [
+1,
+0
+],
+"f": "s4.jpg",
+"th": "s4_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Hausd%C3%BClmen,_Sonnenaufgang_--_2015_--_4952.jpg"
+},
+{
+"k": "s6",
+"t": "شروقٌ وضباب",
+"mood": "fajr",
+"vs": [
+0,
+3
+],
+"f": "s6.jpg",
+"th": "s6_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3160-6.jpg"
+},
+{
+"k": "s7",
+"t": "ضبابُ الصباح الذهبي",
+"mood": "fajr",
+"vs": [
+1,
+3
+],
+"f": "s7.jpg",
+"th": "s7_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3220-6.jpg"
+},
+{
+"k": "s9",
+"t": "شروقٌ ينعكس على الماء",
+"mood": "fajr",
+"vs": [
+0,
+1
+],
+"f": "s9.jpg",
+"th": "s9_t.jpg",
+"by": "Heino Ruiso",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Laanemaa_j%C3%A4rv_Orkj%C3%A4rve_looduskaitsealal.jpg"
+},
+{
+"k": "s18",
+"t": "أحواض الملح عند الفجر",
+"mood": "fajr",
+"vs": [
+0
+],
+"f": "s18.jpg",
+"th": "s18_t.jpg",
+"by": "JJ Harrison (https://www.jjharrison.com.au/)",
+"lic": "CC BY-SA 2.5",
+"src": "https://commons.wikimedia.org/wiki/File:Tessellated_Pavement_Sunrise_Landscape.jpg"
+},
+{
+"k": "s19",
+"t": "جزيرةٌ وأشجار عند الشروق",
+"mood": "fajr",
+"vs": [
+1
+],
+"f": "s19.jpg",
+"th": "s19_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_a_green_island_at_sunrise_with_blue_sky_and_pirogue_in_Don_Det_Laos.jpg"
+},
+{
+"k": "s21",
+"t": "نهرٌ في الغروب",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s21.jpg",
+"th": "s21_t.jpg",
+"by": "Jakub Hałun",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Wsch%C3%B3d_s%C5%82o%C5%84ca_nad_Kana%C5%82em_%C5%81%C4%85cza%C5%84skim_w_Brze%C5%BAnicy,_20211009_0711_3152.jpg"
+},
+{
+"k": "s26",
+"t": "أشعّة الشمس بين الغيوم",
+"mood": "duha",
+"vs": [
+3,
+1
+],
+"f": "s26.jpg",
+"th": "s26_t.jpg",
+"by": "Alchemist-hp (www.pse-mendelejew.de)",
+"lic": "FAL",
+"src": "https://commons.wikimedia.org/wiki/File:Crepuscular_rays_at_Sunset_near_Waterberg_Plateau.jpg"
+},
+{
+"k": "s33",
+"t": "قرص الشمس عند الغروب",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s33.jpg",
+"th": "s33_t.jpg",
+"by": "Alvesgaspar",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sunset_2007-1.jpg"
+},
+{
+"k": "s35",
+"t": "جبالٌ عند أول الضوء",
+"mood": "fajr",
+"vs": [
+0,
+4
+],
+"f": "s35.jpg",
+"th": "s35_t.jpg",
+"by": "Michael Gäbler",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sunset_in_Saxon_Switzerland.jpg"
+},
+{
+"k": "s36",
+"t": "سهلٌ وجبال عند الفجر",
+"mood": "fajr",
+"vs": [
+4
+],
+"f": "s36.jpg",
+"th": "s36_t.jpg",
+"by": "Michal Klajban",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sunset_in_The_Trossachs,_Scotland.jpg"
+},
+{
+"k": "s37",
+"t": "جبالٌ وغيوم",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s37.jpg",
+"th": "s37_t.jpg",
+"by": "Sergey Pesterev",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sunset_in_the_Himalayas.jpg"
+},
+{
+"k": "s41",
+"t": "كثيبٌ أحمر",
+"mood": "duha",
+"vs": [
+1,
+8
+],
+"f": "s41.jpg",
+"th": "s41_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:006_Dune_45_in_Sossusvlei_at_sunrise_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s43",
+"t": "ظلّ الكثبان",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s43.jpg",
+"th": "s43_t.jpg",
+"by": "Ikiwaner",
+"lic": "GFDL 1.2",
+"src": "https://commons.wikimedia.org/wiki/File:Dead_Vlei_Duene.jpg"
+},
+{
+"k": "s44",
+"t": "شجرةٌ وحيدة في الصحراء",
+"mood": "duha",
+"vs": [
+6,
+9
+],
+"f": "s44.jpg",
+"th": "s44_t.jpg",
+"by": "Daniel Kraft",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dead_Vlei_Tree_central.jpg"
+},
+{
+"k": "s46",
+"t": "قمّة الكثيب",
+"mood": "duha",
+"vs": [
+1
+],
+"f": "s46.jpg",
+"th": "s46_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Duna_en_Sossusvlei,_Namibia,_2018-08-06,_DD_002.jpg"
+},
+{
+"k": "s47",
+"t": "صحراءٌ وجبال",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s47.jpg",
+"th": "s47_t.jpg",
+"by": "Original: Hamza-siaDerivative work including rotation, conve",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dune_de_sable_au_parc_Culturel_De_l%27Ahaggar_crop.jpg"
+},
+{
+"k": "s48",
+"t": "تموّجات الرمل",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s48.jpg",
+"th": "s48_t.jpg",
+"by": "Clément Bardot",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dunes,_D%C3%A9sert_du_Thar.jpg"
+},
+{
+"k": "s52",
+"t": "كثبانٌ في ضوء المساء",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s52.jpg",
+"th": "s52_t.jpg",
+"by": "Yathin S Krishnappa",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Namib-Naukluft_Sand_Dunes_(2011).jpg"
+},
+{
+"k": "s54",
+"t": "نقوش الريح على الرمل",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s54.jpg",
+"th": "s54_t.jpg",
+"by": "Hamza-sia",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Parc_Culturel_De_l%27Ahaggar_(91).JPG"
+},
+{
+"k": "s57",
+"t": "كثبانٌ متتابعة",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s57.jpg",
+"th": "s57_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sossusvlei,_Namibia,_2018-08-06,_DD_040.jpg"
+},
+{
+"k": "s59",
+"t": "سهلٌ رملي واسع",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s59.jpg",
+"th": "s59_t.jpg",
+"by": "Daniel Kraft",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sossusvlei_Dune_Rippled_cropped.jpg"
+},
+{
+"k": "s62",
+"t": "واحةٌ بين الكثبان",
+"mood": "duha",
+"vs": [
+8,
+5
+],
+"f": "s62.jpg",
+"th": "s62_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Oasis_de_Huacachina,_Ica,_Per%C3%BA,_2015-07-29,_DD_18.JPG"
+},
+{
+"k": "s65",
+"t": "شجرة سَمُر في وادٍ صحراوي",
+"mood": "duha",
+"vs": [
+6,
+8
+],
+"f": "s65.jpg",
+"th": "s65_t.jpg",
+"by": "لا روسا",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Acacia_in_Ein_Khadra_Desert_Oasis_00_(87).jpg"
+},
+{
+"k": "s75",
+"t": "نخلةٌ تنعكس في الماء",
+"mood": "fajr",
+"vs": [
+5,
+8
+],
+"f": "s75.jpg",
+"th": "s75_t.jpg",
+"by": "Jonathan Wilkins and edited by Poco a poco",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Guaratiba_morning.jpg"
+},
+{
+"k": "s79",
+"t": "نخلةٌ بين التلال",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s79.jpg",
+"th": "s79_t.jpg",
+"by": "Wilfredor",
+"lic": "CC0",
+"src": "https://commons.wikimedia.org/wiki/File:San_Juan_Valley.jpg"
+},
+{
+"k": "s109",
+"t": "درب التبانة فوق بحيرة",
+"mood": "layl",
+"vs": [
+2,
+7
+],
+"f": "s109.jpg",
+"th": "s109_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:008_Milky_way_aligned_with_the_Matterhorn_reflecting_in_Stellisee_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s111",
+"t": "درب التبانة",
+"mood": "layl",
+"vs": [
+2,
+7
+],
+"f": "s111.jpg",
+"th": "s111_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:035_Vertical_panorama_of_the_Milky_Way_during_Perseids_seen_from_Oeschinensee_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s114",
+"t": "مجرّتنا فوق الماء",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s114.jpg",
+"th": "s114_t.jpg",
+"by": "Juliancolton",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Bontecou_Lake_Milky_Way_panorama.jpg"
+},
+{
+"k": "s122",
+"t": "ليلٌ ونجوم وأشجار",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s122.jpg",
+"th": "s122_t.jpg",
+"by": "Martin Mark",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:In_the_photo_there_is_one_Perseid,_Milky_Way_and_Andromega_galaxy_and_light_pollution_on_the_horizon_-_Luhasoo_bog_in_Estonia.jpg"
+},
+{
+"k": "s124",
+"t": "نجومٌ فوق بحيرة",
+"mood": "layl",
+"vs": [
+2,
+7
+],
+"f": "s124.jpg",
+"th": "s124_t.jpg",
+"by": "Kristian Pikner",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Linnutee_-_Milky_Way_(9)_copy.jpg"
+},
+{
+"k": "s125",
+"t": "ليلٌ بين الجبال",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s125.jpg",
+"th": "s125_t.jpg",
+"by": "John Badham",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Llyn_Ogwen_Milky_Way.jpg"
+},
+{
+"k": "s127",
+"t": "نجوم الجبل",
+"mood": "layl",
+"vs": [
+7
+],
+"f": "s127.jpg",
+"th": "s127_t.jpg",
+"by": "Alexander Kurilov",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Milky_Way_over_the_valley_of_Marukha_River,_Arkhyz,_Russi%D0%B0.jpg"
+},
+{
+"k": "s133",
+"t": "درب التبانة ينعكس على الماء",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s133.jpg",
+"th": "s133_t.jpg",
+"by": "Anil Öztas",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Ramsau_bei_Berchtesgaden_(DE),_Milchstra%C3%9Fe_%C3%BCber_Hochkalter_%26_Hintersee_--_2024_--_1018-50.jpg"
+},
+{
+"k": "s137",
+"t": "ضباب الفجر بين التلال",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s137.jpg",
+"th": "s137_t.jpg",
+"by": "Uzman Naleer",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:A_Misty_Dawn,_Dandenong_Ranges.jpg"
+},
+{
+"k": "s138",
+"t": "أول الضوء على الماء",
+"mood": "fajr",
+"vs": [
+0
+],
+"f": "s138.jpg",
+"th": "s138_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Amanecer_en_el_lago_Titicaca,_Puno,_Per%C3%BA,_2015-08-01,_DD_01.JPG"
+},
+{
+"k": "s150",
+"t": "جبالٌ في الضباب",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s150.jpg",
+"th": "s150_t.jpg",
+"by": "Original:  Florian Kriechbaumer\nDerivative work:  Aristeas",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Mountains_of_Wadi_Shawka_denoised.jpg"
+},
+{
+"k": "s153",
+"t": "غابةٌ في ضباب الشروق",
+"mood": "fajr",
+"vs": [
+3,
+7
+],
+"f": "s153.jpg",
+"th": "s153_t.jpg",
+"by": "Märt Kose",
+"lic": "CC BY-SA 3.0 ee",
+"src": "https://commons.wikimedia.org/wiki/File:Roosa_hommikuudu_Tolkuse_rabas.jpg"
+},
+{
+"k": "s156",
+"t": "صخورٌ وشروق",
+"mood": "fajr",
+"vs": [
+1
+],
+"f": "s156.jpg",
+"th": "s156_t.jpg",
+"by": "Vian",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%92%D1%96%D0%B4%D1%8C%D0%BE%D0%BC%D1%81%D1%8C%D0%BA%D1%96_%D0%BF%D0%BE%D1%80%D0%BE%D0%B3%D0%B8_%D0%BD%D0%B0_%D1%81%D0%B2%D1%96%D1%82%D0%B0%D0%BD%D0%BA%D1%83.jpg"
+},
+{
+"k": "s157",
+"t": "وادٍ في الصباح",
+"mood": "fajr",
+"vs": [
+4
+],
+"f": "s157.jpg",
+"th": "s157_t.jpg",
+"by": "Byrdyak",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0_%D1%80%D1%96%D1%87%D0%BA%D0%B8_%D0%94%D0%BD%D1%96%D1%81%D1%82%D0%B5%D1%80_%D1%82%D0%B0_%D0%BC._%D0%97%D0%B0%D0%BB%D1%96%D1%89%D0%B8%D0%BA%D0%B8.jpg"
+},
+{
+"k": "s159",
+"t": "بحيرةٌ عند الفجر",
+"mood": "fajr",
+"vs": [
+0
+],
+"f": "s159.jpg",
+"th": "s159_t.jpg",
+"by": "Original:  Oleksandr Malyon\nDerivative work:  Radomianin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D1%96%D0%B2_%D0%BE%D0%B1%D1%80%D1%96%D0%B9._%D0%A1%D0%B2%D1%96%D1%82%D0%B0%D0%BD%D0%BE%D0%BA_(edited).jpg"
+},
+{
+"k": "s161",
+"t": "شجرةٌ وماء عند الشروق",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s161.jpg",
+"th": "s161_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Colorful_clouds_and_blue_sky_with_water_reflection_of_an_island_hosting_trees_at_sunrise_in_Si_Phan_Don,_Laos.jpg"
+},
+{
+"k": "s162",
+"t": "جبالٌ فوق الغيم",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s162.jpg",
+"th": "s162_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Karst_mountains_colorful_clouds_and_mist_at_sunrise_from_the_top_of_Mount_Nam_Xay_Vang_Vieng_Laos.jpg"
+},
+{
+"k": "s163",
+"t": "وادٍ أخضر وغيوم",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s163.jpg",
+"th": "s163_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Karst_peaks_mist_and_colorful_clouds_at_sunrise_seen_from_Mount_Nam_Xay_in_Vang_Vieng_Laos.jpg"
+},
+{
+"k": "s164",
+"t": "غروبٌ ناريّ على الماء",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s164.jpg",
+"th": "s164_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Red_clouds_over_Mekong_banks_with_dwellings_and_pirogues_at_sunrise_in_Don_Det_Laos.jpg"
+},
+{
+"k": "s165",
+"t": "سماءٌ تنعكس في بركة",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s165.jpg",
+"th": "s165_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_stringy_gray_and_white_clouds_in_a_pond_on_a_sand_beach_of_Don_Khon_at_sunrise_in_Laos.jpg"
+},
+{
+"k": "s171",
+"t": "غيومٌ كالريش",
+"mood": "duha",
+"vs": [
+3
+],
+"f": "s171.jpg",
+"th": "s171_t.jpg",
+"by": "ADARSHluck",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Cirrus_uncinus_clouds_in_the_morning_sky.jpg"
+},
+{
+"k": "s173",
+"t": "حقولٌ عند الغروب",
+"mood": "asr",
+"vs": [
+8
+],
+"f": "s173.jpg",
+"th": "s173_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Colorful_sky_with_orange_and_pink_clouds_reflecting_in_the_water_of_a_paddy_field_at_dusk_in_Don_Det_Laos.jpg"
+},
+{
+"k": "s174",
+"t": "حقولٌ مضيئة",
+"mood": "asr",
+"vs": [
+11
+],
+"f": "s174.jpg",
+"th": "s174_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Colorful_sky_with_orange_clouds_reflecting_in_the_water_of_a_paddy_field,_at_sunset,_Vang_Vieng,_Laos.jpg"
+},
+{
+"k": "s175",
+"t": "حقول الأرز وقت الغروب",
+"mood": "asr",
+"vs": [
+8
+],
+"f": "s175.jpg",
+"th": "s175_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Colorful_sky_with_pink_and_blue_clouds_reflecting_in_the_water_of_a_paddy_field_at_dusk_in_Don_Det_Laos.jpg"
+},
+{
+"k": "s177",
+"t": "صخور البحر والشمس",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s177.jpg",
+"th": "s177_t.jpg",
+"by": "Dmytro Balkhovitin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Crimea,_Ai-Petri,_low_clouds.jpg"
+},
+{
+"k": "s179",
+"t": "شلالٌ بين الصخور",
+"mood": "duha",
+"vs": [
+5,
+11
+],
+"f": "s179.jpg",
+"th": "s179_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Li_Phi_falls_at_sunrise_with_white_and_grey_clouds_in_Don_Khon_Laos.jpg"
+},
+{
+"k": "s182",
+"t": "صفاء السماء والماء",
+"mood": "duha",
+"vs": [
+1
+],
+"f": "s182.jpg",
+"th": "s182_t.jpg",
+"by": "Matthias Süßen",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Noctilucent-clouds-msu-6817.jpg"
+},
+{
+"k": "s183",
+"t": "قمرٌ بين الغيوم",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s183.jpg",
+"th": "s183_t.jpg",
+"by": "W.carter",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Partial_solar_eclipse_with_some_clouds_in_Tuntorp_43.jpg"
+},
+{
+"k": "s190",
+"t": "كثبانٌ وجبالٌ وردية",
+"mood": "fajr",
+"vs": [
+0,
+8
+],
+"f": "s190.jpg",
+"th": "s190_t.jpg",
+"by": "Bureau of Land Management - Utah/Bob Wick",
+"lic": "Public domain",
+"src": "https://commons.wikimedia.org/wiki/File:Utah_Dunes_Landscape_-_West_Desert_District.jpg"
+},
+{
+"k": "s193",
+"t": "جبلٌ ينعكس على الماء",
+"mood": "fajr",
+"vs": [
+4
+],
+"f": "s193.jpg",
+"th": "s193_t.jpg",
+"by": "Jakub Fryš",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Castle_Mountain.jpg"
+},
+{
+"k": "s197",
+"t": "بحيرةٌ جبلية",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s197.jpg",
+"th": "s197_t.jpg",
+"by": "Ximonic (Simo Räsänen)",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Frosty_Raftsundet_landscape_with_Trolltindan_in_morning,_2012_October.JPG"
+},
+{
+"k": "s202",
+"t": "رصيفٌ خشبي عند الفجر",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s202.jpg",
+"th": "s202_t.jpg",
+"by": "Christian Ferrer",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Landscape_in_Peyriac-de-Mer,_february_2018_(05).jpg"
+},
+{
+"k": "s207",
+"t": "كثبانٌ وردية",
+"mood": "fajr",
+"vs": [
+1
+],
+"f": "s207.jpg",
+"th": "s207_t.jpg",
+"by": "The Cosmonaut",
+"lic": "CC BY-SA 2.5 ca",
+"src": "https://commons.wikimedia.org/wiki/File:Nuluujaak_Mountain.jpg"
+},
+{
+"k": "s208",
+"t": "جبالٌ وانعكاسها",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s208.jpg",
+"th": "s208_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Square_plot_of_a_green_paddy_field_and_water_reflection_of_mountains_with_mist_and_blue_sky,_Vang_Vieng,_Laos.jpg"
+},
+{
+"k": "s210",
+"t": "وادٍ في الغيم",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s210.jpg",
+"th": "s210_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sunny_mist_in_the_mountains_at_golden_hour,_South-West_view_from_Mount_Nam_Xay,_Vang_Vieng,_Laos.jpg"
+},
+{
+"k": "s213",
+"t": "جروفٌ تنعكس على الماء",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s213.jpg",
+"th": "s213_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Water_reflection_of_karst_mountains_at_golden_hour_in_Vang_Vieng_Laos_(panoramic).jpg"
+},
+{
+"k": "s216",
+"t": "بحيرةٌ بين الجبال",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s216.jpg",
+"th": "s216_t.jpg",
+"by": "Vyacheslav Argenberg",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Zagedan_Ridge,_Zagedan_Valley,_Caucasus_Mountains,_Karachay-Cherkessia.jpg"
+},
+{
+"k": "s217",
+"t": "شلالٌ عند الغروب",
+"mood": "asr",
+"vs": [
+5
+],
+"f": "s217.jpg",
+"th": "s217_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Tad_Hang_waterfalls_at_sunset,_Tad_Lo_village,_Bolaven_Plateau,_Laos.jpg"
+},
+{
+"k": "s219",
+"t": "شلالٌ في الخضرة",
+"mood": "duha",
+"vs": [
+5,
+11
+],
+"f": "s219.jpg",
+"th": "s219_t.jpg",
+"by": "Chettouh Nabil",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Cascade_de_A%C3%AFn_Legradj_%C3%A0_Bordj_Bou_Arreredj.jpg"
+},
+{
+"k": "s223",
+"t": "مياهٌ بيضاء",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s223.jpg",
+"th": "s223_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Khone_Phapheng_Falls,_Si_Phan_Don,_Laos,_widest_waterfall_in_the_world.jpg"
+},
+{
+"k": "s226",
+"t": "شلالٌ بين الصخور",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s226.jpg",
+"th": "s226_t.jpg",
+"by": "Dominicus Johannes Bergsma.",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Panixersee_(Lag_da_Pigniu)_boven_Andiast._26-09-2025._(d.j.b.)_05.jpg"
+},
+{
+"k": "s231",
+"t": "ستارةٌ من الماء",
+"mood": "duha",
+"vs": [
+5,
+11
+],
+"f": "s231.jpg",
+"th": "s231_t.jpg",
+"by": "Noodle snacks",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Russell_Falls_2.jpg"
+},
+{
+"k": "s236",
+"t": "شلال الغابة",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s236.jpg",
+"th": "s236_t.jpg",
+"by": "Frank Schulenburg",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Waterfall_in_Russian_Gulch_State_Park.jpg"
+},
+{
+"k": "s239",
+"t": "شلالٌ وأوراق",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s239.jpg",
+"th": "s239_t.jpg",
+"by": "A4ernyh",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D1%80%D0%BE%D0%B3%D0%B8_%D0%A3%D0%BB%D1%83-%D0%A3%D0%B7%D0%B5%D0%BD%D1%8C.jpg"
+},
+{
+"k": "s246",
+"t": "وادٍ أخضر بين الجبال",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s246.jpg",
+"th": "s246_t.jpg",
+"by": "Gabor Eszes (UED77)",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Glade_Creek_Grist_Mill.jpg"
+},
+{
+"k": "s247",
+"t": "ألوان الخريف",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s247.jpg",
+"th": "s247_t.jpg",
+"by": "Ximonic (Simo Räsänen)",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Graddiselva_river_in_Junkerdalen,_Saltdal,_Nordland,_Norway,_2018_September.jpg"
+},
+{
+"k": "s257",
+"t": "نهرٌ في وادٍ صخري",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s257.jpg",
+"th": "s257_t.jpg",
+"by": "This Photo was taken by Timothy A. Gonsalves.  Feel free to ",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Rain_Clouds_Tsarap_Phuktal_Zanskar_Jun24_R16_07793.jpg"
+},
+{
+"k": "s267",
+"t": "نهر الخريف",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s267.jpg",
+"th": "s267_t.jpg",
+"by": "Roman Eisele",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:T%C3%BCbingen_-_Neckarinsel_-_Blick_entlang_Neckar_im_Herbst.jpg"
+},
+{
+"k": "s274",
+"t": "ساحلٌ وأمواج",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s274.jpg",
+"th": "s274_t.jpg",
+"by": "King of Hearts",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Chimney_Rock_Trail_Point_Reyes_December_2016_panorama_1.jpg"
+},
+{
+"k": "s275",
+"t": "جرفٌ على البحر",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s275.jpg",
+"th": "s275_t.jpg",
+"by": "King of Hearts",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Chimney_Rock_Trail_Point_Reyes_December_2016_panorama_2.jpg"
+},
+{
+"k": "s276",
+"t": "بحرٌ وغيوم",
+"mood": "asr",
+"vs": [
+3
+],
+"f": "s276.jpg",
+"th": "s276_t.jpg",
+"by": "Taro Taylor from Sydney, Australia",
+"lic": "CC BY 2.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dark_Days_Are_Coming.jpg"
+},
+{
+"k": "s290",
+"t": "حجارةٌ في بحرٍ ساكن",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s290.jpg",
+"th": "s290_t.jpg",
+"by": "Ansgar Koreng",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Schwanenstein,_Lohme,_Insel_R%C3%BCgen,_170422,_ako_(3).jpg"
+},
+{
+"k": "s291",
+"t": "قوسٌ صخري على البحر",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s291.jpg",
+"th": "s291_t.jpg",
+"by": "kallerna",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sea_caves_Cape_Greco_9.jpg"
+},
+{
+"k": "s297",
+"t": "شمسٌ بين الصخور",
+"mood": "asr",
+"vs": [
+1
+],
+"f": "s297.jpg",
+"th": "s297_t.jpg",
+"by": "Андрей Кровлин",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%AF%D0%BD%D0%B2%D0%B0%D1%80%D1%81%D0%BA%D0%BE%D0%B5_%D0%BF%D0%BE%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D1%8C%D0%B5_%D0%AF%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BC%D0%BE%D1%80%D1%8F_%D0%B2_%D0%A5%D0%B0%D1%81%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%BC_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%B5.jpg"
+},
+{
+"k": "s299",
+"t": "بحيرةٌ خضراء",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s299.jpg",
+"th": "s299_t.jpg",
+"by": "Vyacheslav Argenberg",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Zagedan_Lakes,_Mountain_cirque,_Caucasus_Mountains.jpg"
+},
+{
+"k": "s304",
+"t": "بحيرةٌ كالمرآة",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s304.jpg",
+"th": "s304_t.jpg",
+"by": "Myrabella",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Gentau_Pic_du_Midi_Ossau.jpg"
+},
+{
+"k": "s305",
+"t": "ضبابٌ على بحيرة",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s305.jpg",
+"th": "s305_t.jpg",
+"by": "Florian Fuchs",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Herbert_Lake_beim_Icefields_Parkway.jpg"
+},
+{
+"k": "s312",
+"t": "وادٍ وبحيرة",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s312.jpg",
+"th": "s312_t.jpg",
+"by": "Florian Fuchs",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Lake_Kinney_mit_Mount_Whitehorn.jpg"
+},
+{
+"k": "s317",
+"t": "بحيرةٌ فيروزية",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s317.jpg",
+"th": "s317_t.jpg",
+"by": "СССР",
+"lic": "CC BY-SA 2.5 ca",
+"src": "https://commons.wikimedia.org/wiki/File:McGinnis_Lake_panorama1.jpg"
+},
+{
+"k": "s322",
+"t": "جبالٌ ثلجية وبحيرة",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "s322.jpg",
+"th": "s322_t.jpg",
+"by": "Isiwal",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Sankt_Moritz_Lake_Piz_Muragl.jpg"
+},
+{
+"k": "s323",
+"t": "شروقٌ على الجبل وانعكاسه",
+"mood": "fajr",
+"vs": [
+0,
+1
+],
+"f": "s323.jpg",
+"th": "s323_t.jpg",
+"by": "King of Hearts",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Silver_Lake_Mammoth_September_2016_001.jpg"
+},
+{
+"k": "s330",
+"t": "جدولٌ في الخريف",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s330.jpg",
+"th": "s330_t.jpg",
+"by": "Khoroshkov",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%BD%D0%BE%D1%80%D0%B0%D0%BC%D0%B0_%D0%B2%D0%BE%D0%B4%D0%BE%D1%81%D0%BF%D0%B0%D0%B4%D1%83_%D0%A8%D0%B8%D0%BF%D1%96%D1%82.jpg"
+},
+{
+"k": "s331",
+"t": "شلالٌ في غابةٍ كثيفة",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s331.jpg",
+"th": "s331_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Beech_Forest_(AU),_Great_Otway_National_Park,_Beauchamp_Falls_--_2019_--_1271.jpg"
+},
+{
+"k": "s333",
+"t": "دربٌ في غابة الخريف",
+"mood": "duha",
+"vs": [
+7
+],
+"f": "s333.jpg",
+"th": "s333_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_B%C3%B6rnste,_Waldweg_--_2015_--_4649.jpg"
+},
+{
+"k": "s338",
+"t": "أشعّة الشمس في الغابة",
+"mood": "fajr",
+"vs": [
+1,
+3,
+7
+],
+"f": "s338.jpg",
+"th": "s338_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Rorup,_NSG_Roruper_Holz_--_2021_--_8187-91.jpg"
+},
+{
+"k": "s339",
+"t": "دربٌ في ضباب الغابة",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s339.jpg",
+"th": "s339_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Umland,_Sonnenaufgang_--_2012_--_8069.jpg"
+},
+{
+"k": "s340",
+"t": "شجرةٌ في الضباب",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s340.jpg",
+"th": "s340_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Fanal_(Madeira,_Portugal),_Lorbeerwald_--_2025_--_1546.jpg"
+},
+{
+"k": "s346",
+"t": "غروبٌ أحمر وراء الأشجار",
+"mood": "asr",
+"vs": [
+4
+],
+"f": "s346.jpg",
+"th": "s346_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Puesta_de_sol,_Tok,_Alaska,_Estados_Unidos,_2017-08-28,_DD_189-191_HDR.jpg"
+},
+{
+"k": "s350",
+"t": "درجٌ في غابة الضباب",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s350.jpg",
+"th": "s350_t.jpg",
+"by": "Basile Morin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Wooden_staircase_steps_in_the_forest_of_Hallasan_Park_Eorimok_Trail_at_dusk_on_Jeju_Island_in_South_Korea.jpg"
+},
+{
+"k": "s353",
+"t": "وادي الضباب",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s353.jpg",
+"th": "s353_t.jpg",
+"by": "Rbrechko",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:21-224-5054_NNP_Synevyr_RB_18.jpg"
+},
+{
+"k": "s355",
+"t": "أشجارٌ عند الشروق",
+"mood": "fajr",
+"vs": [
+0
+],
+"f": "s355.jpg",
+"th": "s355_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Umland_--_2014_--_7056.jpg"
+},
+{
+"k": "s356",
+"t": "أشجارٌ في الضباب",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s356.jpg",
+"th": "s356_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Fanal_(Madeira,_Portugal),_Lorbeerwald_--_2025_--_1532.jpg"
+},
+{
+"k": "s358",
+"t": "ضبابٌ ذهبي",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s358.jpg",
+"th": "s358_t.jpg",
+"by": "Kuhnmi",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Baumsilhouetten_am_Uetliberg_mit_Novembernebel_und_Sonnenstrahlen.jpg"
+},
+{
+"k": "s359",
+"t": "بحرٌ من الغيوم",
+"mood": "fajr",
+"vs": [
+4
+],
+"f": "s359.jpg",
+"th": "s359_t.jpg",
+"by": "Uoaei1",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Blassenstein_Erlauftal_mit_Nebel_02_Panorama.JPG"
+},
+{
+"k": "s360",
+"t": "ضباب النهر",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s360.jpg",
+"th": "s360_t.jpg",
+"by": "George Chernilevsky",
+"lic": "Public domain",
+"src": "https://commons.wikimedia.org/wiki/File:Desna_river_Vinn_meadow_2016_G2.jpg"
+},
+{
+"k": "s368",
+"t": "بحيرةٌ في ضبابٍ ذهبي",
+"mood": "fajr",
+"vs": [
+3
+],
+"f": "s368.jpg",
+"th": "s368_t.jpg",
+"by": "Abrget47j",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Hommikune_udu_Kakerdaja_rabas.jpg"
+},
+{
+"k": "s375",
+"t": "شروقٌ فوق الغيوم",
+"mood": "fajr",
+"vs": [
+4,
+0
+],
+"f": "s375.jpg",
+"th": "s375_t.jpg",
+"by": "Thomas Bresson",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Vallee-brouillard.jpg"
+},
+{
+"k": "s376",
+"t": "ضبابٌ وغروب",
+"mood": "asr",
+"vs": [
+3
+],
+"f": "s376.jpg",
+"th": "s376_t.jpg",
+"by": "Michael Gäbler",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Water_mill_Rosenm%C3%BChle_in_Lower_Saxony,_Germany.jpg"
+},
+{
+"k": "s383",
+"t": "قوس المطر فوق الوادي",
+"mood": "duha",
+"vs": [
+11,
+3
+],
+"f": "s383.jpg",
+"th": "s383_t.jpg",
+"by": "Basotxerri",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Benasque_-_Llanos_del_Hospital_01.jpg"
+},
+{
+"k": "s387",
+"t": "قوس المطر بين الجبال",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s387.jpg",
+"th": "s387_t.jpg",
+"by": "Colin",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Glen_Coe_Rainbow.jpg"
+},
+{
+"k": "s390",
+"t": "قوس المطر والشلال",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s390.jpg",
+"th": "s390_t.jpg",
+"by": "Jakub Hałun",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Kirkjufell,_Iceland,_20240714_1631_0713.jpg"
+},
+{
+"k": "s405",
+"t": "قوس المطر فوق الصحراء",
+"mood": "duha",
+"vs": [
+8,
+11
+],
+"f": "s405.jpg",
+"th": "s405_t.jpg",
+"by": "Ted.ns",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D0%A0%D0%B0%D0%B4%D1%83%D0%B3%D0%B0_%D0%BD%D0%B0%D0%B4_%D0%B2%D1%83%D0%BB%D0%BA%D0%B0%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%BC%D0%B8_%D0%BA%D0%BE%D0%BD%D1%83%D1%81%D0%B0%D0%BC%D0%B8.jpg"
+},
+{
+"k": "s410",
+"t": "وردةٌ حمراء",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s410.jpg",
+"th": "s410_t.jpg",
+"by": "Agnes Monkelbaan",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Bloem_van_een_Camellia_%C3%97_williamsii_%27Roger_Hall%27._20-04-2021_(actm.)_01.jpg"
+},
+{
+"k": "s414",
+"t": "شقائق النعمان",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s414.jpg",
+"th": "s414_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Fr%C3%B6belstra%C3%9Fe,_Mohn_am_Feldrand_--_2021_--_9174.jpg"
+},
+{
+"k": "s416",
+"t": "زهرةٌ ونحلة",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s416.jpg",
+"th": "s416_t.jpg",
+"by": "Uoaei1",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Eristalis_tenax_auf_Tragopogon_pratensis_01.JPG"
+},
+{
+"k": "s419",
+"t": "زهرةٌ برتقالية",
+"mood": "duha",
+"vs": [
+5
+],
+"f": "s419.jpg",
+"th": "s419_t.jpg",
+"by": "Alvesgaspar",
+"lic": "CC BY 2.5",
+"src": "https://commons.wikimedia.org/wiki/File:Halictus_bee_on_flower-2.jpg"
+},
+{
+"k": "s431",
+"t": "حقل القمح",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s431.jpg",
+"th": "s431_t.jpg",
+"by": "Jacek Halicki",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:2014_Pole_uprawne_w_Raszkowie.jpg"
+},
+{
+"k": "s433",
+"t": "تلٌّ أخضر وشجرة",
+"mood": "duha",
+"vs": [
+11
+],
+"f": "s433.jpg",
+"th": "s433_t.jpg",
+"by": "Alvesgaspar",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Campilhas_March_2015-1a.jpg"
+},
+{
+"k": "s454",
+"t": "نخيلٌ عند الغروب",
+"mood": "asr",
+"vs": [
+5
+],
+"f": "s454.jpg",
+"th": "s454_t.jpg",
+"by": "Michal Klajban",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Three_palm_trees_during_the_sunset,_Ayia_Marina_Chrysochous,_Paphos_District,_Cyprus_02.jpg"
+},
+{
+"k": "s469",
+"t": "عشّ اللقلق وصغاره",
+"mood": "duha",
+"vs": [
+6,
+9
+],
+"f": "s469.jpg",
+"th": "s469_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:002_Jabiru_feeding_its_babies_in_their_nest_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s476",
+"t": "عشٌّ دافئ",
+"mood": "duha",
+"vs": [
+6
+],
+"f": "s476.jpg",
+"th": "s476_t.jpg",
+"by": "Petro Stelte",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Bird-Nest-Chicks-Sitia--Crete-Greece.jpg"
+},
+{
+"k": "s479",
+"t": "طائرٌ يحنو على صغيره",
+"mood": "duha",
+"vs": [
+9,
+6
+],
+"f": "s479.jpg",
+"th": "s479_t.jpg",
+"by": "Charles J. Sharp",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Brown_booby_(Sula_leucogaster_plotus)_female_and_juvenile_male_on_nest_Michaelmas_Cay.jpg"
+},
+{
+"k": "s482",
+"t": "عصفورٌ يطعم صغاره",
+"mood": "duha",
+"vs": [
+6,
+10
+],
+"f": "s482.jpg",
+"th": "s482_t.jpg",
+"by": "Stefan-Xp",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Hausrotschwanz_Brutpflege_2006-05-24_211.jpg"
+},
+{
+"k": "s483",
+"t": "صغار السنونو في عشّها",
+"mood": "duha",
+"vs": [
+6,
+10
+],
+"f": "s483.jpg",
+"th": "s483_t.jpg",
+"by": "Michael Gäbler",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Hirundo_rustica_(Linnaeus,_1758).jpg"
+},
+{
+"k": "s492",
+"t": "لقلقٌ في عشّه",
+"mood": "duha",
+"vs": [
+6
+],
+"f": "s492.jpg",
+"th": "s492_t.jpg",
+"by": "Ermell",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Zentbechhofen_St%C3%B6rche_Nest-20200319-RM-151747.jpg"
+},
+{
+"k": "s493",
+"t": "طيورٌ في سماء الفجر",
+"mood": "fajr",
+"vs": [
+7
+],
+"f": "s493.jpg",
+"th": "s493_t.jpg",
+"by": "Dietmar Rabich",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:D%C3%BClmen,_Kirchspiel,_B%C3%B6rnste,_Felder_und_B%C3%A4ume_--_2017_--_3238.jpg"
+},
+{
+"k": "s511",
+"t": "سربٌ مهاجر",
+"mood": "duha",
+"vs": [
+7
+],
+"f": "s511.jpg",
+"th": "s511_t.jpg",
+"by": "H. Zell",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Pelecanus_rufescens_-_%C3%89tang_de_Bages-Sigean_01.jpg"
+},
+{
+"k": "s516",
+"t": "شجرةٌ في الصحراء الحمراء",
+"mood": "duha",
+"vs": [
+6
+],
+"f": "s516.jpg",
+"th": "s516_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dead_Vlei,_Sossusvlei,_Namibia,_2018-08-06,_DD_086.jpg"
+},
+{
+"k": "s518",
+"t": "شجرةٌ وكثيب",
+"mood": "duha",
+"vs": [
+9
+],
+"f": "s518.jpg",
+"th": "s518_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:054e_Dead_camel_thorn_tree_in_Deadvlei_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s525",
+"t": "جملٌ في الصحراء",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s525.jpg",
+"th": "s525_t.jpg",
+"by": "Alexandr frolov",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Camelus_bactrianus_in_western_Mongolia_06.jpg"
+},
+{
+"k": "s526",
+"t": "قافلةٌ على الكثبان",
+"mood": "asr",
+"vs": [
+7,
+4
+],
+"f": "s526.jpg",
+"th": "s526_t.jpg",
+"by": "Sergey Pesterev",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Caravan_in_the_desert.jpg"
+},
+{
+"k": "s527",
+"t": "شجرةٌ عتيقة",
+"mood": "duha",
+"vs": [
+9
+],
+"f": "s527.jpg",
+"th": "s527_t.jpg",
+"by": "Diego Delso",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dead_Vlei,_Sossusvlei,_Namibia,_2018-08-06,_DD_085.jpg"
+},
+{
+"k": "s531",
+"t": "رأس الجمل",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s531.jpg",
+"th": "s531_t.jpg",
+"by": "Blackmysterieux",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Dromadaire_d%27Alg%C3%A9rie.jpg"
+},
+{
+"k": "s541",
+"t": "جملٌ يستريح عند الغروب",
+"mood": "asr",
+"vs": [
+9
+],
+"f": "s541.jpg",
+"th": "s541_t.jpg",
+"by": "Skander zarrad",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Un_dromadaire_lors_d%27un_lever_de_soleil.jpg"
+},
+{
+"k": "s542",
+"t": "ريحٌ على الكثيب",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "s542.jpg",
+"th": "s542_t.jpg",
+"by": "Giladtop",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:%D7%92%D7%9C%D7%99%D7%A9%D7%AA_%D7%A2%D7%A0%D7%A0%D7%99%D7%9D_%D7%9C%D7%9E%D7%9B%D7%AA%D7%A9_%D7%A8%D7%9E%D7%95%D7%9F.jpg"
+},
+{
+"k": "s555",
+"t": "القمر فوق الأرض",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s555.jpg",
+"th": "s555_t.jpg",
+"by": "NASA",
+"lic": "Public domain",
+"src": "https://commons.wikimedia.org/wiki/File:Full_moon_partially_obscured_by_atmosphere.jpg"
+},
+{
+"k": "s576",
+"t": "شفقٌ أخضر",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s576.jpg",
+"th": "s576_t.jpg",
+"by": "Giles Laurent",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:039_Northern_lights_over_M%C3%BDvatn_(Iceland)_Photo_by_Giles_Laurent.jpg"
+},
+{
+"k": "s584",
+"t": "شفقٌ بنفسجي",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s584.jpg",
+"th": "s584_t.jpg",
+"by": "W.carter",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:G5_aurora_over_Tuntorp,_Lysekil_Municipality_15.jpg"
+},
+{
+"k": "s585",
+"t": "شفقٌ فوق الصخور",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s585.jpg",
+"th": "s585_t.jpg",
+"by": "Johannes Groll followhansi",
+"lic": "CC0",
+"src": "https://commons.wikimedia.org/wiki/File:Lofoten,_Norway_(Unsplash).jpg"
+},
+{
+"k": "s586",
+"t": "شفقٌ فوق الماء",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s586.jpg",
+"th": "s586_t.jpg",
+"by": "Maxim Bilovitskiy",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Maardu_Northern_lights_%E2%80%94_Estonia,_2022.jpg"
+},
+{
+"k": "s590",
+"t": "شفقٌ ينعكس على البحيرة",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s590.jpg",
+"th": "s590_t.jpg",
+"by": "Kristian Pikner",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Virmalised_17.03.15.jpg"
+},
+{
+"k": "s591",
+"t": "شفقٌ وراء الأشجار",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "s591.jpg",
+"th": "s591_t.jpg",
+"by": "Kristian Pikner",
+"lic": "CC BY-SA 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Virmalised_18.03.15_(2).jpg"
+}
+]
+}

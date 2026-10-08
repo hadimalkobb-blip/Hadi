@@ -1,0 +1,31 @@
+# Publishes the Android app as a GitHub Release whenever new parts land on the «apk» branch.
+# (A git file may not exceed 100 MB, so the APK travels in parts and is joined here; a release file may be up to 2 GB.)
+name: Publish the app
+on:
+  push:
+    branches: [apk]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: apk
+      - name: Join the parts
+        run: |
+          cat parts/rihlat-al-duha.apk.part-* > rihlat-al-duha.apk
+          echo "$(cat parts/sha256.txt)  rihlat-al-duha.apk" | sha256sum -c -
+          ls -la rihlat-al-duha.apk
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V=$(cat parts/version.txt)
+          if gh release view "v$V" >/dev/null 2>&1; then
+            gh release upload "v$V" rihlat-al-duha.apk --clobber
+          else
+            gh release create "v$V" rihlat-al-duha.apk --title "رحلة الضحى $V" --notes-file parts/notes.md --latest
+          fi

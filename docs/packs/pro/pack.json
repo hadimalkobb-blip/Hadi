@@ -1,0 +1,277 @@
+{
+"id": "pro",
+"items": [
+{
+"k": "p_sunrise1",
+"t": "الشمس تشرق من وراء الجبل",
+"c": "",
+"mood": "fajr",
+"vs": [
+0,
+1
+],
+"f": "p_sunrise1.mp4",
+"th": "p_sunrise1_t.jpg",
+"by": "idioterna",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:February_8_Sunrise_Time-lapse_in_4K.webm"
+},
+{
+"k": "p_sunrise2",
+"t": "شروقٌ يملأ السماء",
+"c": "",
+"mood": "fajr",
+"vs": [
+1
+],
+"f": "p_sunrise2.mp4",
+"th": "p_sunrise2_t.jpg",
+"by": "idioterna",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Another_Sunrise_Time_Lapse_in_4K.webm"
+},
+{
+"k": "p_dawn",
+"t": "الليل ينسحب والفجر يأتي",
+"c": "",
+"mood": "fajr",
+"vs": [
+3,
+0
+],
+"f": "p_dawn.mp4",
+"th": "p_dawn_t.jpg",
+"by": "Thomas Bresson",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:2019-04-02_sunrise-belfort.webm"
+},
+{
+"k": "p_milky",
+"t": "درب التبانة فوق شجرة",
+"c": "",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "p_milky.mp4",
+"th": "p_milky_t.jpg",
+"by": "S3 Channel",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:JAPAN_Milk_Way_4K_-_Beautiful_Star_and_Sky_at_Night_Time_Lapse.webm"
+},
+{
+"k": "p_stars",
+"t": "سماءٌ مرصّعة بالنجوم",
+"c": "",
+"mood": "layl",
+"vs": [
+2,
+7
+],
+"f": "p_stars.mp4",
+"th": "p_stars_t.jpg",
+"by": "S3 Channel",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:JAPAN_Milk_Way_4K_-_Beautiful_Star_and_Sky_at_Night_Time_Lapse.webm"
+},
+{
+"k": "p_lakestars",
+"t": "نجومٌ تنعكس على البحيرة",
+"c": "",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "p_lakestars.mp4",
+"th": "p_lakestars_t.jpg",
+"by": "S3 Channel",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:JAPAN_Milk_Way_4K_-_Beautiful_Star_and_Sky_at_Night_Time_Lapse.webm"
+},
+{
+"k": "p_bromo_mw",
+"t": "مجرّتنا فوق الجبال",
+"c": "",
+"mood": "layl",
+"vs": [
+7
+],
+"f": "p_bromo_mw.mp4",
+"th": "p_bromo_mw_t.jpg",
+"by": "Justin Ng",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Mount_Bromo_HD_Timelapse_Movie_by_Justin_Ng.webm"
+},
+{
+"k": "p_bromo_clouds",
+"t": "بحرٌ من الغيوم",
+"c": "",
+"mood": "fajr",
+"vs": [
+4
+],
+"f": "p_bromo_clouds.mp4",
+"th": "p_bromo_clouds_t.jpg",
+"by": "Justin Ng",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Mount_Bromo_HD_Timelapse_Movie_by_Justin_Ng.webm"
+},
+{
+"k": "p_bromo_sun",
+"t": "شمسٌ فوق الوادي",
+"c": "",
+"mood": "duha",
+"vs": [
+1
+],
+"f": "p_bromo_sun.mp4",
+"th": "p_bromo_sun_t.jpg",
+"by": "Justin Ng",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Mount_Bromo_HD_Timelapse_Movie_by_Justin_Ng.webm"
+},
+{
+"k": "p_mountain",
+"t": "غيومٌ تعبر القمم",
+"c": "",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "p_mountain.mp4",
+"th": "p_mountain_t.jpg",
+"by": "Octagon",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:S%C3%A4uling-timelapse.webm"
+},
+{
+"k": "p_clouds",
+"t": "غيومٌ بيضاء تتشكّل",
+"c": "",
+"mood": "duha",
+"vs": [
+3,
+11
+],
+"f": "p_clouds.mp4",
+"th": "p_clouds_t.jpg",
+"by": "John Fowler (away)",
+"lic": "CC BY 2.0",
+"src": "https://commons.wikimedia.org/wiki/File:Cloud_timelapse.webm"
+},
+{
+"k": "p_cloudtree",
+"t": "شجرةٌ تحت سماءٍ متحرّكة",
+"c": "",
+"mood": "duha",
+"vs": [
+3
+],
+"f": "p_cloudtree.mp4",
+"th": "p_cloudtree_t.jpg",
+"by": "https://www.youtube.com/user/FreeSwissVideo",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Wolken_Zeitraffer_-_Clouds_Timelapse_4K_HD_24FPS.webm"
+},
+{
+"k": "p_falls",
+"t": "شلالٌ عظيم عند الصباح",
+"c": "",
+"mood": "fajr",
+"vs": [
+5,
+11
+],
+"f": "p_falls.mp4",
+"th": "p_falls_t.jpg",
+"by": "Harry TheSea",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Rheinfall_(Rhine_Falls).webm"
+},
+{
+"k": "p_rain",
+"t": "قطرات المطر على الأوراق",
+"c": "",
+"mood": "duha",
+"vs": [
+8
+],
+"f": "p_rain.mp4",
+"th": "p_rain_t.jpg",
+"by": "Beachfront B-Roll",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:RainingWebm.webm"
+},
+{
+"k": "p_rose",
+"t": "وردةٌ تتفتّح",
+"c": "",
+"mood": "duha",
+"vs": [
+5,
+11
+],
+"f": "p_rose.mp4",
+"th": "p_rose_t.jpg",
+"by": "Alex Tr",
+"lic": "CC BY 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Time-lapse_of_opening_red_rose_isolated_on_black_background.Blooming_red_roses_flower_buds.webm"
+},
+{
+"k": "p_aurora_space",
+"t": "الشفق من محطة الفضاء",
+"c": "",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "p_aurora_space.mp4",
+"th": "p_aurora_space_t.jpg",
+"by": "Video: ESA – European Space Agency 2017, CC BY-SA 3.0 IGO\n\nA",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Alexander_Gerst%E2%80%99s_Earth_timelapses_(2017_reissue).webm"
+},
+{
+"k": "p_earth",
+"t": "الأرض من الفضاء نهارًا",
+"c": "",
+"mood": "duha",
+"vs": [
+4
+],
+"f": "p_earth.mp4",
+"th": "p_earth_t.jpg",
+"by": "Video: ESA – European Space Agency 2017, CC BY-SA 3.0 IGO\n\nA",
+"lic": "CC BY-SA 3.0",
+"src": "https://commons.wikimedia.org/wiki/File:Alexander_Gerst%E2%80%99s_Earth_timelapses_(2017_reissue).webm"
+},
+{
+"k": "p_aurora",
+"t": "شفقٌ أخضر فوق ألاسكا",
+"c": "",
+"mood": "layl",
+"vs": [
+2
+],
+"f": "p_aurora.mp4",
+"th": "p_aurora_t.jpg",
+"by": "NASA's Scientific Visualization Studio - Amentum Services, I",
+"lic": "Public domain",
+"src": "https://commons.wikimedia.org/wiki/File:Alaskan_Aurora_Time_Lapse_(SVS15077).webm"
+},
+{
+"k": "p_starsrise",
+"t": "النجوم تطلع فوق الجبل",
+"c": "",
+"mood": "layl",
+"vs": [
+7
+],
+"f": "p_starsrise.mp4",
+"th": "p_starsrise_t.jpg",
+"by": "ESO/B. Tafreshi",
+"lic": "CC BY 4.0",
+"src": "https://commons.wikimedia.org/wiki/File:Stars_Rise_over_La_Silla.ogv"
+}
+]
+}
