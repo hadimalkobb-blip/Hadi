@@ -33,6 +33,7 @@ function wire() {
     const nb = e.target.closest('[data-narr]'); if (nb) { e.preventDefault(); Sfx.init(); toggleNarr(nb.dataset.narr); return; }
     const dp = e.target.closest('[data-deep]'); if (dp) { const n = +dp.dataset.deep; openSheet(`تعمّق في الآية ${ARN(n)}`, `<div class="qt night" style="margin-bottom:12px">${verseHTML(n)}</div>${deepHTML(n)}`); return; }
     if (e.target.closest('.dc summary')) { S.deepN = (S.deepN || 0) + 1; save(); if (S.deepN >= 11) award('deep'); }
+    const tj = e.target.closest('[data-tjs]'); if (tj) { e.preventDefault(); tjWhy(tj.dataset.tjs); return; }
     const g = e.target.closest('[data-go]'); if (g) { e.preventDefault(); go(g.dataset.go); }
   });
   document.addEventListener('pointerdown', unlockAudio, { capture: true, once: true });

@@ -17,7 +17,7 @@ function openRunner(title) {
     <div class="run-body"><div class="run-in" id="rIn"></div></div></div>`);
   document.body.appendChild(Run.el);
   document.body.style.overflow = 'hidden';
-  Run.body = $('#rIn', Run.el); Run.xp = 0; Run.combo = 0; Run.best = 0; Run.step = 0; Run.steps = 1; Run.alive = true; Run.game = null;
+  Run.body = $('#rIn', Run.el); Run.xp = 0; Run.combo = 0; Run.best = 0; Run.step = 0; Run.steps = 1; Run.alive = true; Run.game = null; Run.h = 0; Run.m = 0;
   Run.el.querySelector('[data-x]').onclick = () => closeRunner();
   return Run.body;
 }
@@ -130,11 +130,13 @@ async function stepBuild(vs, title = 'ركّب') {
   const units = buildUnits(vs);
   let mistakes = 0, total = 0;
   for (let u = 0; u < units.length; u++) {
-    const unit = units[u];
+    const unit = units[u], m0 = mistakes;
     const seq = []; unit.forEach(n => QD.verses[n].forEach((w, i) => seq.push({ n, i, w })));
     total += seq.length;
-    let tiles = shuffle(seq.map((x, k) => ({ ...x, k })));
-    if (seq.length > 1) while (tiles.every((t, k) => t.k === k)) tiles = shuffle(tiles);
+    const lvB = Run.game === 'build' ? adaptLevel('build') : 0;
+    const decoyW = lvB >= 2 ? shuffle(verseRange(1, NV).filter(x => !unit.includes(x)).flatMap(x => QD.verses[x].map((w, i) => ({ n: x, i, w })))).filter(d => !seq.some(q => q.w === d.w)).slice(0, lvB - 1) : [];
+    let tiles = shuffle([...seq.map((x, k) => ({ ...x, k })), ...decoyW.map(d => ({ ...d, k: -1, decoy: true }))]);
+    if (seq.length > 1) while (tiles.every((t, k) => t.k === k || t.decoy)) tiles = shuffle(tiles);
     html(Run.body, `${stepHead(title, `${vsLabel(unit)} · اضغط الكلمات بالترتيب`)}
       <div class="answer qt night" id="bAns" aria-live="polite"></div>
       <div class="tiles" id="bTiles">${tiles.map((t, j) => `<button class="tile qt night" data-j="${j}">${wordHTML(t.n, t.i)}</button>`).join('')}</div>
@@ -152,7 +154,7 @@ async function stepBuild(vs, title = 'ركّب') {
           const lastOfVerse = pos === seq.length - 1 || seq[pos + 1].n !== want.n;
           $('#bAns').insertAdjacentHTML('beforeend', `<span class="w">${wordHTML(want.n, want.i)}</span>${lastOfVerse && want.n ? '\u00a0' + marker(want.n) : ''} `);
           pos++; Sfx.tap(); buzz(8);
-          if (pos === seq.length) { hit(); $('#bFb').className = 'feedback good'; $('#bFb').textContent = pick(PRAISE); playSeq(unit); $('#bGo').hidden = false; $('#bHint').hidden = true; $('#bGo').onclick = () => { stopAll(); res(true); }; }
+          if (pos === seq.length) { if (mistakes - m0 >= 2) unit.forEach(n => brainNote(n, 2, 'build')); vShine($('#bAns')); hit(); $('#bFb').className = 'feedback good'; $('#bFb').textContent = pick(PRAISE); playSeq(unit); $('#bGo').hidden = false; $('#bHint').hidden = true; $('#bGo').onclick = () => { stopAll(); res(true); }; }
           else playWord(want.n, want.i);
         } else {
           mistakes++; el.classList.remove('wrong'); void el.offsetWidth; el.classList.add('wrong'); miss();
@@ -184,8 +186,9 @@ function blankVerse(n, w) { return QD.verses[n].map((x, i) => i === w ? `<span c
 function missingQ(n) {
   const words = QD.verses[n]; const w = Math.random() * words.length | 0, right = words[w];
   const pool = shuffle([...new Set(verseRange(1, NV).filter(x => x !== n).flatMap(x => QD.verses[x]))].filter(x => x !== right));
-  const sameEnd = pool.filter(x => x.slice(-2) === right.slice(-2));
-  const ds = [...new Set([...sameEnd.slice(0, 1), ...pool])].slice(0, 3);
+  const sameEnd = pool.filter(x => x.slice(-2) === right.slice(-2) || x[0] === right[0]);
+  const lv = Run.game === 'missing' ? adaptLevel('missing') : 1, nd = [2, 3, 3, 4][lv], ns = [0, 1, 2, 3][lv];
+  const ds = [...new Set([...sameEnd.slice(0, ns), ...pool])].slice(0, nd);
   const opts = shuffle([right, ...ds]);
   return { n, w, opts, ok: opts.indexOf(right) };
 }
@@ -196,6 +199,7 @@ async function stepMissing(vs, count, title = 'أكمل') {
     const q = qs[i];
     const words = q.opts.map(x => { for (let n = 1; n <= NV; n++) { const k = QD.verses[n].indexOf(x); if (k >= 0) return wordHTML(n, k); } return esc(x); });
     if (await mcq({ head: stepHead(title, `${ARN(i + 1)} من ${ARN(qs.length)} · اختر الكلمة الناقصة`), prompt: `<div class="panel"><div class="qt night qbig">${blankVerse(q.n, q.w)}</div></div>`, opts: words, ok: q.ok, two: true })) good++;
+    else brainNote(q.n, 2, 'missing');
   }
   return { score: good / qs.length, good, total: qs.length };
 }
@@ -219,12 +223,13 @@ async function stepTablet(vs, title = 'اللوح') {
     await until($('#tGo'));
     stopAll(); gain(8); Sfx.tap();
   }
+  const g = peeks === 0 ? 3 : peeks <= 2 ? 2 : 1; vs.forEach(n => brainNote(n, g, 'tablet'));
   return { peeks, score: clamp(1 - peeks / Math.max(4, all.length / 2)) };
 }
 
 /* ---------- step: recall and self-grade ---------- */
 async function stepRecall(vs, title = 'سمّع') {
-  let good = 0;
+  let good = 0; const marks = [];
   for (let i = 0; i < vs.length; i++) {
     const n = vs[i], v = VERSES[n];
     html(Run.body, `${stepHead(title, `${ARN(i + 1)} من ${ARN(vs.length)} · سمّع الآية بصوتك ثم تحقّق`)}
@@ -241,8 +246,9 @@ async function stepRecall(vs, title = 'سمّع') {
     const ok = await pend(res => { $('#rGrade').onclick = e => { const b = e.target.closest('[data-ok]'); if (b) res(b.dataset.ok === '1'); }; });
     stopAll();
     if (ok) { good++; hit(); } else miss();
+    marks.push(ok); brainNote(n, ok ? 3 : 1, 'recall');
   }
-  return { score: good / vs.length, good, total: vs.length };
+  return { score: good / vs.length, good, total: vs.length, marks };
 }
 
 /* ---------- order the verses (race) ---------- */
@@ -289,6 +295,7 @@ async function stepNext(count, title = 'ما بعدها؟') {
 /* ---------- celebration ---------- */
 async function celebrate({ title, sub, stars = 0, gemReward = true, again }) {
   let daily = false;
+  if (Run.game && !/^tj|^(coach|quick|weak)$/.test(Run.game) && (Run.h || 0) + (Run.m || 0) >= 3) adaptNote(Run.game, Run.h / (Run.h + Run.m));
   if (Run.game && Run.game === dailyGame().id && S.daily !== dayKey()) { S.daily = dayKey(); gain(50); daily = true; }
   const nb = SESSION.newBadges.splice(0);
   Sfx.win(); buzz([20, 50, 20, 50, 40]);
@@ -329,6 +336,7 @@ async function stationFlow(st) {
   const stars = score >= .9 ? 3 : score >= .7 ? 2 : 1;
   gain(100 + stars * 20);
   markStation(st.id, stars);
+  await sealMoment(st, stars);
   await celebrate({ title: `أشرقت محطة «${st.name}»`, sub: `${vsLabel(vs)} · ستذكّرك الرحلة بمراجعتها غدًا`, stars });
 }
 async function bossFlow(st) {
@@ -362,7 +370,7 @@ function startReview(id) {
 /* ---------- arcade games ---------- */
 function startGame(id) {
   Sfx.init();
-  const g = [...GAMES, ...GAMES_GEO, ...GAMES_NEW, ...GAMES_ART].find(x => x.id === id);
+  const g = allGames().find(x => x.id === id);
   if (id === 'palace') return openPalace();
   openRunner(g ? g.name : 'لعبة');
   Run.game = id;
@@ -372,6 +380,7 @@ function startGame(id) {
   fn().catch(e => { if (e !== CLOSED) console.error(e); });
 }
 const again = id => () => startGame(id);
+const allGames = () => [...GAMES, ...GAMES_GEO, ...GAMES_NEW, ...GAMES_ART, ...(typeof TJ_GAMES !== 'undefined' ? TJ_GAMES : []), ...(typeof GAMES_50 !== 'undefined' ? GAMES_50 : [])];
 const GAME_FNS = {
   async build() {
     const vs = shuffle([2, 3, 4, 5, 6, 7, 8, 9, 10, 11]).slice(0, 5);

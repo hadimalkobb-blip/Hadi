@@ -14,7 +14,10 @@ P = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S = os.path.join(P, 'build')
 
 ORDER = ['icons', 'content', 'deep', 'scenes', 'core', 'media', 'heart', 'day', 'life', 'people', 'polish',
-         'gold', 'gold2', 'gold3', 'gold4', 'gold5', 'gold6', 'tajweed', 'gold7', 'views', 'runner', 'games', 'main']
+         'gold', 'gold2', 'gold3', 'gold4', 'gold5', 'views', 'runner', 'games',
+         'tajweed', 'gold6', 'brain', 'prophets', 'games2', 'v50', 'main']
+# data injected into a module as __NAME__ (file build/data/<name>.json); content.js holds the original four
+EXTRA_DATA = {'tajweed': ['TJD'], 'prophets': ['PRD', 'PRN']}
 
 FONTS_WEB = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
              '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
@@ -59,6 +62,8 @@ def main_js(flags):
         if m == 'content':
             for k in ('QD', 'MEDIA', 'PACKS', 'GOLDD'):
                 t = t.replace(f'__{k}__', data_js(k), 1)
+        for k in EXTRA_DATA.get(m, []):
+            t = t.replace(f'__{k}__', data_js(k), 1)
         if m == 'gold5':
             for k, v in flags.items():
                 t, n = re.subn(rf'^const {k} = (true|false);', f'const {k} = {"true" if v else "false"};', t, count=1, flags=re.M)
@@ -77,7 +82,7 @@ def page(kind='site'):
     head.append('<title>رحلة الضحى</title>\n<meta name="description" content="لعبة تفاعلية لحفظ سورة الضحى">\n')
     head.append(FONTS_APP if kind == 'app' else FONTS_WEB)
     css = read(os.path.join(S, 'src', 'style.css'))
-    for extra in ('style2.css',):
+    for extra in ('style50.css',):
         f = os.path.join(S, 'src', extra)
         if os.path.exists(f):
             css += '\n' + read(f)

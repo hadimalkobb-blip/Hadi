@@ -602,6 +602,8 @@ async function palTest() {
 function goldRow() {
   const t = gTotal();
   return `<div class="goldrow"><span class="eyebrow gold-eb">${ic('crown')} الذهبية</span>
+    <button class="card goldc tjc" data-go="tja">${ic('bulb')}<b>أكاديمية التجويد</b><span class="dim">${S.tja && Object.keys(S.tja.s || {}).length ? `إتقانك ${ARN(Math.round(tjMastery() * 100))}٪ · لماذا هذا الحكم؟` : 'كل حكمٍ في السورة، ولماذا هو هكذا لا غيره'}</span></button>
+    ${prophetsTile()}
     <button class="card goldc libc" data-go="library">${ic('download')}<b>مكتبة الضحى</b><span class="dim">${PACKS.filter(p => libHas(p.id)).length ? `على جهازك ${ARN(PACKS.filter(p => libHas(p.id)).length)} من ${ARN(PACKS.length)} حزم` : 'اختر حزم المشاهد والصور التي تحبها'}</span></button>
     <button class="card goldc" data-go="oasis3d">${ic('lantern')}<b>واحة الضحى ٣D</b><span class="dim">${S.best && S.best.world3d ? `جمعت ${cnt(S.best.world3d, AYA)}` : 'فوانيس الكلمات في ليل الواحة'}</span></button>
     <button class="card goldc" data-go="gold"><span class="gmini" aria-hidden="true">${verseRange(1, NV).map(n => `<i class="lv${gLevel(n)}"></i>`).join('')}</span><b>مصحفك المذهّب</b><span class="dim">${t >= GM_MAX ? 'صفحتك مذهّبة كاملة' : `التذهيب ${ARN(t)} من ${ARN(GM_MAX)}`}</span></button>

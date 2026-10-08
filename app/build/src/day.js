@@ -28,7 +28,8 @@ function duhaCard() {
       : `<span class="eyebrow">انتهى وقت الضحى اليوم</span><h3>غدًا من ${hm(duhaState(new Date(Date.now() + 864e5)).a)} تقريبًا</h3>`;
   return `<div class="card duhacard ${d.state}">${head}
     <p class="dim">«ويجزئ من ذلك ركعتان يركعهما من الضحى»: صدقةٌ عن كل مفصل فيك (مسلم ٧٢٠). الأوقات تقريبية.</p>
-    <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px">${d.state !== 'after' || prayed ? `<button class="chip ${prayed ? 'on' : ''}" id="duhaPr">${prayed ? ic('check') + ' صلّيت الضحى اليوم' : 'صلّيت الضحى اليوم'}</button>` : ''}<button class="chip" data-go="world">${ic('sun')} الضحى حول العالم</button><button class="chip" id="duhaCity">${ic('pin')} ${esc(d.t.city.name)}</button></div></div>`;
+    ${(() => { const dd = duhaDots(); return dd.month ? `<button class="duharow" data-go="duhapr">${dd.html}<span class="dim">${cnt(dd.month, ['يومٌ واحد', 'يومان', 'أيام', 'يومًا'])} في ثلاثين يومًا · لك وحدك</span></button>` : ''; })()}
+    <div class="row" style="gap:8px;flex-wrap:wrap;margin-top:10px">${d.state !== 'after' || prayed ? `<button class="chip ${prayed ? 'on' : ''}" id="duhaPr">${prayed ? ic('check') + ' صلّيت الضحى اليوم' : 'صلّيت الضحى اليوم'}</button>` : ''}<button class="chip" data-go="duhapr">${ic('book')} عن ركعتي الضحى</button><button class="chip" data-go="world">${ic('sun')} الضحى حول العالم</button><button class="chip" id="duhaCity">${ic('pin')} ${esc(d.t.city.name)}</button></div></div>`;
 }
 function bindDuhaCard() {
   const p = $('#duhaPr'); if (p) p.onclick = () => {
@@ -134,7 +135,7 @@ function bedtimeCard() {
   const ph = moonPhase();
   return `<div class="card bedcard"><canvas class="moonc" width="160" height="160" id="moonC" aria-label="القمر الليلة: ${ph.name}"></canvas>
     <div class="grow"><span class="eyebrow">والليل إذا سجى · القمر الليلة ${ph.name} (${ARN(Math.round(ph.illum * 100))}٪)</span><h3>راجع قبل النوم</h3><p class="dim">النوم بعد المراجعة يثبّت الحفظ. شغّل التلاوة واتركها تنطفئ وحدها.</p>
-    <div class="chips" style="margin-top:8px">${[10, 20, 30].map(m => `<button class="chip" data-sleep="${m}">${ARN(m)} دقيقة</button>`).join('')}</div></div></div>`;
+    <div class="chips" style="margin-top:8px">${[10, 20, 30].map(m => `<button class="chip" data-sleep="${m}">${ARN(m)} دقيقة</button>`).join('')}<button class="chip" data-go="bedtime">${ic('moon')} حكاية الليلة: ${esc(prTonight().t)}</button></div></div></div>`;
 }
 const Sleep = { t: 0 };
 function startSleep(min) {

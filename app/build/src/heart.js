@@ -89,6 +89,8 @@ function renderHeart() {
   <div class="htiles">${HEART.map(tile).join('')}</div>
   <div class="hhead" style="margin-top:6px"><span class="eyebrow">لماذا تحفظ؟</span><h2>بالدليل… وبصدق</h2></div>
   <div class="htiles">${WHY.map(tile).join('')}</div>
+  <div class="hhead" style="margin-top:6px"><span class="eyebrow">جديد · ليل الأنبياء وضحاهم</span><h2>كل ليلٍ يعقبه ضحى</h2></div>
+  <div class="htiles">${[['prophets', 'lantern', 'ليل الأنبياء وضحاهم', 'يوسف في البئر، ويونس في بطن الحوت… ثم الضحى', 'love'], ['yunus', 'whale', 'يونس في الظلمات', 'تجربةٌ في العتمة، ودعاءٌ يُخرج إلى النور', 'calm'], ['duas', 'hands', 'أدعية الأنبياء', 'ثمانية أدعية تجمعها بالحفظ', 'gold'], ['bedtime', 'moon', 'حكاية قبل النوم', 'قصص الأنبياء من القرآن وحده، بصوت الراوي', 'calm'], ['friday', 'calendar', 'قصة الجمعة', 'من الصحيحين، وسؤالٌ للغداء', 'love'], ['deeds', 'heart', 'ليش الدين جميل؟', 'عشر بطاقات، وفعلٌ صغير لليوم', 'gold']].map(([go, i, t, s, tone]) => `<button class="htile t-${tone}" data-go="${go}"><span class="hti">${ic(i)}</span><b>${t}</b><span>${s}</span></button>`).join('')}</div>
   <div class="hhead" style="margin-top:6px"><span class="eyebrow">من الآية لحياتك</span><h2>عِشها في يومك</h2></div>
   <div class="htiles">${LIFE.map(x => `<button class="htile t-${x.tone}" data-go="${x.id}"><span class="hti">${ic(x.ic)}</span><b>${x.t}</b><span>${qfmt(x.s)}</span></button>`).join('')}</div>
   <p class="dim" style="text-align:center">كل حديث هنا صحيح أو حسن ومعه رقمه. <button class="linkish" data-go="credits">المصادر</button></p>`);

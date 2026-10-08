@@ -648,7 +648,7 @@ function kkPick(st) {
   if (st.i !== g.w) { g.wrong++; g.miss++; st.shake = .45; buzz(12); if (g.wrong >= 2) kkSay('النجمة التي تومض هي التالية', 1800); return; }
   st.on = true; st.at = performance.now(); g.w++; playWord(g.n, st.i); kkVerse(); g.wrong = 0;
   if (g.w >= g.stars.length) {
-    g.busy = true; g.done = true; g.doneAt = performance.now();
+    g.busy = true; g.done = true; g.doneAt = performance.now(); vShine($('#kkVerse', Kk.L.body)); Sfx.bird();
     setTimeout(() => {
       if (!Kk.L) return; sqNote([g.n]); playSeq([g.n]).then(() => {
         if (!Kk.L) return; g.vi++;

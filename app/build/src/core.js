@@ -265,14 +265,16 @@ function wordSpan(rid, n, w) {
   const s = Math.max(0, w ? c[w] - 10 : t.b[w] - 40), e = last ? Math.min(t.d, t.t1 + 140) : c[w + 1] - 10;
   return [s, Math.max(s + 90, e)];
 }
-function playWord(n, w) {
-  const rid = Player.rid, [s, e] = wordSpan(rid, n, w);
+function playWord(n, w) { const [s, e] = wordSpan(Player.rid, n, w); return playCut(n, s, e, { n, w }); }
+/* several neighbouring words as one cut (a tajweed spot that spans a word boundary: «خيرٌ لّك») */
+function playWords(n, w0, w1) { const rid = Player.rid; return playCut(n, wordSpan(rid, n, w0)[0], wordSpan(rid, n, w1)[1], { n, w: w0, w1 }); }
+function playCut(n, s, e, ev) {
   stopAll(); Sfx.init();
   const tok = { dead: false, paused: false }; Player.tok = tok; Player.state = 'playing'; Player.n = n;
-  emitP('word', { n, w }); prefetchReciter(rid);
+  emitP('word', ev); prefetchReciter(Player.rid);
   const fin = () => { if (Player.tok === tok) { Player.tok = null; Player.state = 'idle'; emitP('end', { done: true, word: true }); } };
   if (!Sfx.ctx) return playSegment(n, s, e, tok).finally(fin);
-  return wordBuf(rid, n).then(buf => new Promise(res => {
+  return wordBuf(Player.rid, n).then(buf => new Promise(res => {
     if (tok.dead) return res(false);
     const ctx = Sfx.ctx; if (ctx.state === 'suspended') ctx.resume();
     const src = ctx.createBufferSource(), g = ctx.createGain(), rate = Player.rate || 1, dur = (e - s) / 1000, real = dur / rate, t0 = ctx.currentTime + .02;

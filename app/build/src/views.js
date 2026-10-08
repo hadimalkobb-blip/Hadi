@@ -47,6 +47,9 @@ function go(action) {
   if (action === 'tutor') { Read.sub = 'meanings'; showTab('read'); setTimeout(() => { const t = $('#tutorQ'); if (t) { t.scrollIntoView({ block: 'center' }); t.focus(); } }, 120); return; }
   if (action === 'echo') { S.settings.echo = true; save(); return showTab('watch'); }
   if (action === 'reciters') return openReciters();
+  if (action === 'tja') return openTajweed();
+  if (action === 'coach') return openCoach();
+  if (V50_ROUTES[action]) return V50_ROUTES[action]();
   if (action === 'badges') return openAchievements();
   if (action === 'settings') return openSettings();
   if (action === 'share') return openShare();
@@ -124,10 +127,14 @@ function renderHome() {
     ${STATIONS.map((s, i) => { const a = ARC(i / 4), d = stDone(s.id), st = S.st[s.id]; return `<button class="node ${d ? 'done' : ''} ${nx && nx.id === s.id ? 'next' : ''}" style="left:${(a.x * 100).toFixed(1)}%;top:${(a.y * 100).toFixed(1)}%" data-go="st${s.id}" aria-label="المحطة ${s.id}: ${s.name}${d ? '، مكتملة' : ''}"><span class="lbl">${s.name}</span>${s.id === 5 ? ic('crown') : ARN(s.id)}${d ? `<span class="stars">${'★'.repeat(st.stars || 1)}</span>` : ''}</button>`; }).join('')}
   </div>
   <div class="card cta">${cta}</div>
+  ${coachCard()}
+  ${wordleCard()}
   ${goldRow()}
   ${lifeRow()}
   ${bedtimeCard()}
   ${duhaCard()}
+  ${fridayCard()}
+  ${deedCard()}
   <button class="card doccard" data-go="doc"><img src="scenes/v1.jpg" alt="" loading="lazy"><span class="dcc"><span class="eyebrow">مشاهد حقيقية · تلاوة · شرح بصوت الراوي</span><b>وثائقي الضحى</b><span class="dim">عِش السورة آية آية في نحو ١٠ دقائق</span></span><span class="playc">${ic('play')}</span></button>
   <div class="stats">
     <div class="stat"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="3.2"/><circle cx="18" cy="18" r="15.9" fill="none" stroke="#f7b844" stroke-width="3.2" stroke-linecap="round" pathLength="100" stroke-dasharray="${(gf * 100).toFixed(1)} 100" transform="rotate(-90 18 18)"/></svg><span>هدف اليوم ${ARN(Math.min(tx, goal))}/${ARN(goal)}</span></div>
@@ -144,7 +151,7 @@ function renderHome() {
   <div class="card"><span class="eyebrow">فكرة اليوم من المئة</span><h3 style="margin-top:4px">${idea[1]}</h3><p class="muted" style="margin-top:4px">${idea[2]}</p><div class="row" style="margin-top:10px">${idea[3] ? `<button class="btn btn-line" data-go="${idea[3]}">جرّبها</button>` : ''}<button class="chip" data-go="ideas">كل الأفكار المئة</button></div></div>
   `);
   Hero.mount($('#hero .hmedia'));
-  bindDuhaCard(); const mc = $('#moonC'); if (mc) drawMoon(mc, moonPhase());
+  bindCoachCard(); bindDuhaCard(); bindDeedCard(); const mc = $('#moonC'); if (mc) drawMoon(mc, moonPhase());
   $('#meccaCard').onclick = openMecca;
   let gi = dayIdx() % GEMS.length;
   $('#gemNext').onclick = () => { gi = (gi + 1) % GEMS.length; $('#gemText').innerHTML = qfmt(GEMS[gi]); Sfx.tap(); };
@@ -413,7 +420,8 @@ function wordPop(w, n, i) {
   const rules = [...new Set((QD.tj[n + ':' + i] || []).map(r => r[2]))].filter(k => k !== 'm2' || S.settings.m2);
   const p = node(`<div class="pop" role="dialog" aria-label="الكلمة"><div class="row"><span class="qw qt night grow">${wordHTML(n, i)}</span><button class="iconbtn" data-act="play" aria-label="استمع">${ic('sound')}</button></div>
     ${mean ? `<p style="margin-top:4px">${qfmt(mean)}</p>` : `<p class="dim">${n ? 'الآية ' + ARN(n) + ' · ' + VERSES[n].symName : 'البسملة'}</p>`}
-    ${rules.length ? `<div style="display:grid;gap:4px;margin-top:8px">${rules.map(k => `<div class="row" style="gap:8px;font-size:13px"><i style="width:10px;height:10px;border-radius:3px;background:var(--tj-${k})"></i><b>${TJ_RULES[k].name}</b><span class="dim">${TJ_RULES[k].d}</span></div>`).join('')}</div>` : ''}</div>`);
+    ${rules.length ? `<div style="display:grid;gap:4px;margin-top:8px">${rules.map(k => `<div class="row" style="gap:8px;font-size:13px"><i style="width:10px;height:10px;border-radius:3px;background:var(--tj-${k})"></i><b>${TJ_RULES[k].name}</b><span class="dim">${TJ_RULES[k].d}</span></div>`).join('')}</div>` : ''}
+    ${tjAt(n, i).filter(s => s.r !== 'plain' && s.f !== 'isti').length ? `<div class="tjpl" style="margin-top:8px">${tjAt(n, i).filter(s => s.r !== 'plain' && s.f !== 'isti').map(s => `<button data-tjs="${s.id}">${tjRuleChip(s.r)}<span class="dim">لماذا؟</span>${ic('chev')}</button>`).join('')}</div>` : ''}</div>`);
   document.body.appendChild(p);
   const r = w.getBoundingClientRect(), pw = p.offsetWidth, ph = p.offsetHeight;
   let x = r.left + r.width / 2 - pw / 2; x = clamp(x, 12, window.innerWidth - pw - 12);
@@ -511,11 +519,11 @@ function renderTajweed() {
   inst.taf = [...new Set([...(inst.taf || []), '4:1'])].sort((a, b) => a.split(':')[0] - b.split(':')[0] || a.split(':')[1] - b.split(':')[1]);
   html(b, `
   <div class="card"><span class="eyebrow">رواية حفص عن عاصم</span><h3 style="margin-top:4px">أحكام التجويد في سورة الضحى</h3><p class="muted" style="margin-top:6px">الألوان على طريقة مصحف التجويد الملوّن. اضغط أي مثال لتسمعه بصوت ${esc(RNAME(Player.rid))}، وعُدّ الحركات بأصابعك.</p>
-    <div class="row" style="margin-top:12px;gap:8px;flex-wrap:wrap"><button class="btn btn-sun" data-go="g-hunter">${ic('target')} العب صيّاد التجويد</button><button class="btn btn-line" data-go="mirror">${ic('wave')} شاهد المدّ في مرآة التلاوة</button></div></div>
+    <div class="row" style="margin-top:12px;gap:8px;flex-wrap:wrap"><button class="btn btn-sun" data-go="tja">${ic('bulb')} أكاديمية التجويد: لماذا هذا الحكم؟</button><button class="btn btn-line" data-go="g-hunter">${ic('target')} صيّاد التجويد</button><button class="btn btn-line" data-go="mirror">${ic('wave')} شاهد المدّ في مرآة التلاوة</button></div></div>
   ${TJ_ORDER.map(k => {
     const ex = (inst[k] || []).filter(x => !x.startsWith('0:') || k === 'mj');
     if (!ex.length) return '';
-    return `<div class="card rule-card"><div class="rh"><i style="background:var(--tj-${k})"></i><h3 class="grow">${TJ_RULES[k].name}</h3><span class="dim">${ARN(ex.length)} ${ex.length > 2 ? 'مواضع' : 'موضع'}</span></div><p class="muted">${TJ_RULES[k].d}</p>
+    return `<div class="card rule-card"><div class="rh"><i style="background:var(--tj-${k})"></i><h3 class="grow">${TJ_RULES[k].name}</h3><span class="dim">${ARN(ex.length)} ${ex.length > 2 ? 'مواضع' : 'موضع'}</span></div><p class="muted">${TJ_RULES[k].d}</p>${tjLinkFor(k)}
     <div class="ex night">${ex.map(x => { const [n, w] = x.split(':').map(Number); return `<button data-v="${n}" data-w="${w}">${ic('sound')}<span class="qt">${wordHTML(n, w)}</span><small class="dim" style="font-family:var(--f-ui)">${n ? ARN(n) : 'البسملة'}</small></button>`; }).join('')}</div></div>`;
   }).join('')}
   <div class="card"><h3>لاحظ</h3><ul style="margin:8px 0 0;padding-inline-start:20px;line-height:1.9;display:grid;gap:4px">
@@ -543,12 +551,15 @@ const GAMES = [
   { id: 'recall', name: 'سمّع لنفسك', d: 'الرمز وأول كلمة، والباقي عليك', ic: 'echo', best: () => S.best.recall },
 ];
 function dailyGame() { const pool = [...GAMES, ...GAMES_GEO, ...GAMES_NEW].filter(g => g.id !== 'tablet'); return pool[dayIdx() % pool.length]; }
-const gameBtn = g => { const b = g.best(); return `<button class="game" data-g="${g.id}"><span class="gi">${ic(g.ic)}</span><b>${g.name}</b><span>${g.d}</span>${b != null ? `<em>الأفضل: ${typeof b === 'number' ? ARN(b) : b}</em>` : ''}</button>`; };
+const gameBtn = g => { const b = g.best(); return `<button class="game${g.gold ? ' goldg' : ''}" ${g.go ? `data-go="${g.go}"` : `data-g="${g.id}"`}><span class="gi">${ic(g.ic)}</span><b>${g.name}</b><span>${g.d}</span>${b != null ? `<em>الأفضل: ${typeof b === 'number' ? ARN(b) : b}</em>` : ''}</button>`; };
 function renderPlay() {
   const v = $('#v-play');
   html(v, `
   <div><span class="eyebrow">العب وتعلّم</span><h2>كل لعبة تُثبّت الآيات من زاوية جديدة</h2><p class="muted" style="margin-top:6px">الإجابات المتتالية تشعل السلسلة الذهبية وتضاعف نقاطك.</p></div>
-  <div><span class="eyebrow">${ic('sparkle')} جديد: عوالم وألعاب</span></div>
+  <div class="card tjplay"><span class="eyebrow">${ic('bulb')} جديد في ٥٫٠ · أكاديمية التجويد</span><h3 style="margin-top:4px">ألعابٌ تعلّمك لماذا هذا الحكم، لا غيره</h3>
+    <div class="games" style="margin-top:10px">${TJ_GAMES.map(gameBtn).join('')}<button class="game goldg" data-go="tja"><span class="gi">${ic('book')}</span><b>الأكاديمية</b><span>ثمانية أبواب، و${ARN(TJD.spots.length)} موضعًا في السورة لكلٍّ منها «لماذا؟»</span></button></div></div>
+  ${GAMES_50.length ? `<div><span class="eyebrow">${ic('sparkle')} جديد في ٥٫٠ · ألعاب</span></div><div class="games">${GAMES_50.filter(g => !g.hide).map(gameBtn).join('')}</div>` : ''}
+  <div><span class="eyebrow">${ic('sparkle')} عوالم وألعاب</span></div>
   <div class="games">
     <button class="game goldg" data-go="oasis3d"><span class="gi">${ic('lantern')}</span><b>فوانيس الآيات ٣D</b><span>امشِ في واحةٍ ثلاثية الأبعاد واجمع الكلمات بالترتيب حتى يطلع الضحى</span></button>
     <button class="game goldg" data-go="kawkaba"><span class="gi">${ic('star')}</span><b>كوكبة الآية</b><span>نجومٌ على كل نجمةٍ كلمة: صِلها بالترتيب فتضيء الآية</span></button>
@@ -661,6 +672,7 @@ function openSettings() {
     <label class="toggle"><span>مؤثرات صوتية في الألعاب</span><input type="checkbox" id="sSfx" ${s.sfx ? 'checked' : ''}></label>
     <label class="toggle"><span>أصوات طبيعة حقيقية (لا تُسمع أثناء التلاوة)</span><input type="checkbox" id="sNat" ${s.nature !== false ? 'checked' : ''}></label>
     ${reminderField()}
+    ${backupField()}
     <label class="toggle"><span>اهتزاز عند الإجابة</span><input type="checkbox" id="sHap" ${s.haptic ? 'checked' : ''}></label>
     <label class="toggle"><span>ابدأ التلاوة بالبسملة</span><input type="checkbox" id="sBism" ${s.bism ? 'checked' : ''}></label>
     <label class="toggle"><span>تقليل الحركة (صور ثابتة بدل الفيديو)</span><input type="checkbox" id="sRed" ${reduceMotion() ? 'checked' : ''}></label>
@@ -678,6 +690,7 @@ function openSettings() {
     sh.querySelector('#sNat').onchange = e => { S.settings.nature = e.target.checked; save(); if (!e.target.checked) Amb.set(null); };
     const rm = sh.querySelector('#sRem'); if (rm) rm.onclick = e => { const b = e.target.closest('[data-rm]'); if (!b) return; S.settings.remind = b.dataset.rm; save(); syncReminders(); $$('#sRem .chip').forEach(x => x.setAttribute('aria-pressed', x === b)); toast(b.dataset.rm === 'off' ? 'أوقفت التذكير' : 'سيصلك تذكيرٌ لطيف كل يوم', 'timer'); };
     sh.querySelector('#sHap').onchange = e => { S.settings.haptic = e.target.checked; save(); };
+    bindBackupField(sh);
     sh.querySelector('#sBism').onchange = e => { S.settings.bism = e.target.checked; save(); };
     sh.querySelector('#sRed').onchange = e => { S.settings.reduce = e.target.checked; save(); Hero.w && Hero.w.setReduce(e.target.checked); Cine.w && Cine.w.setReduce(e.target.checked); };
     sh.querySelector('#sNarr').onclick = e => { const b = e.target.closest('button'); if (!b) return; S.settings.narr = b.dataset.m; save(); if (b.dataset.m === 'off') Narr.stop(); $$('#sNarr button').forEach(x => x.setAttribute('aria-selected', x === b)); if (tab === 'watch') { Cine.dn = null; Cine.setVerse(Cine.n); Cine.syncControls(); } };

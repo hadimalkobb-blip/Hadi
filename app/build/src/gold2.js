@@ -28,6 +28,7 @@ function weakNote(k, bad) {
   const w = S.weak[k];
   if (bad) S.weak[k] = { c: Math.min(9, ((w && w.c) || 0) + 1), d: dayKey() };
   else if (w) { if (w.c <= 1) delete S.weak[k]; else S.weak[k] = { ...w, c: w.c - 1 }; }
+  if (bad && typeof dlogAdd === 'function') dlogAdd('s');
 }
 function weakList(lim = 12) {
   return Object.entries(S.weak || {}).map(([k, v]) => { const [n, w] = k.split(':').map(Number); return { k, n, w, c: v.c, d: v.d || '' }; })
@@ -186,7 +187,7 @@ function lrTick() {
 }
 function lrHint(j = Live.s.p) {
   const s = Live.s; if (j >= s.exp.length || s.st[j] || s.help[j] >= 2) return;
-  s.help[j]++; s.hints++; s.last = performance.now();
+  s.help[j]++; s.hints++; s.last = performance.now(); noteHint();
   const el = s.els[j]; if (!el) return;
   if (s.help[j] === 1) el.setAttribute('data-h', lrHintText(s.exp[j].word));
   else { el.removeAttribute('data-h'); el.classList.remove('lr-hid', 'lr-next'); el.classList.add('lr-peek'); }
@@ -273,6 +274,12 @@ function lrFinish() {
     S.gold[n] = { c: (g.c || 0) + 1, d: today }; ups.push(n);
   }
   if (ups.length) award('goldfirst');
+  /* each verse recited is a recall for the memory model: clean 3, with hints 2, shown or skipped 1 */
+  for (const n of s.vs) {
+    const js = s.exp.map((x, j) => x.n === n ? j : -1).filter(j => j >= 0 && s.st[j] !== 'rest'); if (!js.length) continue;
+    const vals = js.map(j => s.st[j]);
+    brainNote(n, vals.every(v => v === 'ok') ? 3 : vals.some(v => v === 'shown' || v === 'skip') ? 1 : 2, 'live');
+  }
   S.live.n = (S.live.n || 0) + 1; S.live.last = today;
   sqNote([...new Set(s.exp.filter((x, j) => s.st[j] === 'ok').map(x => x.n))]);
   if (!s.self && reached >= 8) S.live.best = Math.max(S.live.best || 0, pct);

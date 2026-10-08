@@ -57,7 +57,7 @@ function syncWidget() {
   clearTimeout(widgetTimer);
   widgetTimer = setTimeout(() => { try { window.DuhaApp.syncWidget(JSON.stringify(widgetData())); } catch (e) { } }, 600);
 }
-const REMIND = [['off', 'بلا تذكير'], ['duha', 'وقت الضحى في مدينتي'], ['08:30', 'صباحًا ٨:٣٠'], ['21:00', 'قبل النوم ٩:٠٠ م']];
+const REMIND = [['off', 'بلا تذكير'], ['duha', 'وقت الضحى في مدينتي'], ['06:30', 'بعد الفجر ٦:٣٠'], ['08:30', 'صباحًا ٨:٣٠'], ['13:30', 'ظهرًا ١:٣٠'], ['17:00', 'عصرًا ٥:٠٠'], ['19:30', 'مساءً ٧:٣٠'], ['21:00', 'قبل النوم ٩:٠٠ م']];
 const REMIND_MSG = ['دقيقتان مع الضحى تكفيان اليوم', '﴿مَا وَدَّعَكَ رَبُّكَ وَمَا قَلَىٰ﴾ هل نراجعها معًا؟', 'آيةٌ واحدة اليوم خيرٌ من لا شيء', 'كل آية درجة… اصعد درجةً اليوم', 'شمسك تنتظر أن تشرق أكثر'];
 function reminderPlan(mode, days = 30) {
   const out = [], now = new Date();
@@ -68,8 +68,10 @@ function reminderPlan(mode, days = 30) {
     else { const [h, m] = mode.split(':').map(Number); t = new Date(d.getFullYear(), d.getMonth(), d.getDate(), h, m); }
     if (t <= now) continue;
     const k = dayKey(t), due = [1, 2, 3, 4, 5].filter(id => S.st[id] && S.st[id].done && S.st[id].next && S.st[id].next <= k);
-    const title = mode === 'duha' ? 'حان وقت الضحى' : mode >= '18' ? 'قبل النوم' : 'صباح النور';
-    const body = due.length ? `عندك مراجعة اليوم: «${STATIONS[due[0] - 1].name}». ثلاث دقائق وتثبت` : REMIND_MSG[(dayIdx() + i) % REMIND_MSG.length];
+    const title = mode === 'duha' ? 'حان وقت الضحى' : mode >= '21' ? 'قبل النوم' : mode >= '15' ? 'مساء النور' : mode >= '12' ? 'نهارك نور' : 'صباح النور';
+    /* the memory model knows which verse will start to slip on that day: say so gently, once */
+    const slip = typeof memOf === 'function' ? memorizedVerses().map(n => ({ n, r: memR(memOf(n), t.getTime()) })).filter(x => memOf(x.n) && x.r < .9).sort((a, b) => a.r - b.r)[0] : null;
+    const body = slip ? `الآية ${ARN(slip.n)} تشتاق إليك: دقيقةٌ واحدة تثبّتها` : due.length ? `عندك مراجعة اليوم: «${STATIONS[due[0] - 1].name}». ثلاث دقائق وتثبت` : REMIND_MSG[(dayIdx() + i) % REMIND_MSG.length];
     out.push({ t: t.getTime(), title, body });
   }
   return out;
